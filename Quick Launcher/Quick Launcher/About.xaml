@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="About" Height="250" Width="400" Style="{DynamicResource WindowStyle}" ResizeMode="NoResize" WindowStyle="None" MouseDown="Window_MouseDown" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Label Content="Powered by Crystal Studio" HorizontalAlignment="Left" Margin="224.4,10,0,0" VerticalAlignment="Top"/>
-        <Button Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="311,205.6,0,0" VerticalAlignment="Top" Width="75" Click="OKButton_Click" Style="{DynamicResource BaseButton}"/>
+        Title="About" Height="150" Width="550" Style="{DynamicResource WindowStyle}" ResizeMode="NoResize" WindowStyle="None" MouseDown="Window_MouseDown" WindowStartupLocation="CenterScreen">
+    <Grid Background="Black">
+        <Button Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="461.4,108,0,0" VerticalAlignment="Top" Width="75" Click="OKButton_Click" Style="{DynamicResource BaseButton}"/>
+        <Image HorizontalAlignment="Left" Height="128" Width="128" Margin="10,10,0,0" VerticalAlignment="Top" Source="src/Crystal.png"/>
+        <TextBlock HorizontalAlignment="Left" Margin="156.621,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="128" Width="362.979"><Run Text="Powered by Crystal Studio - TURX （2015级5班  涂睿轩）"/><LineBreak/><Run Text="Website: http://cstu.gq, E-mail: turuixuan@qq.com"/><LineBreak/><Run Text="（由"/><Run Text="callG重构"/><LineBreak/><Run/><LineBreak/><Run Text="Quick Launcher For Xinyuan"/><LineBreak/><Run Text="Under General Crystal License (GCL) - Close-source Softwares"/><LineBreak/><Run Text="A launcher application for USB"/><Run Text=" "/><Run Text="removable devices."/></TextBlock>
     </Grid>
 </Window>

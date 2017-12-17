@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -120,6 +121,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Crystal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="src\Chara.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
