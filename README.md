@@ -1,3 +1,1 @@
-# QuickLauncher
-
-A launcher of Windows Explorer for removable devices. (Only support Chinese)
+#[Quick Launcher](http://git.cstu.gq:3000/CCS/QL "Quick Launcher - A launcher of Windows Explorer for removable devices. (Only support Chinese)")
