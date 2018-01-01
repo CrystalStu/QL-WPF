@@ -14,7 +14,7 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Rectangle.StrokeThickness" TargetName="BackgroundRectangle" Value="2.5"/>
+                            <Setter Property="Rectangle.StrokeThickness" TargetName="BackgroundRectangle" Value="3.5"/>
                             <Setter Property="Rectangle.Stroke" TargetName="BackgroundRectangle" Value="#FF969696"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">

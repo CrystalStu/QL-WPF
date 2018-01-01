@@ -32,23 +32,27 @@ namespace Quick_Launcher
                     XmlSerializer serializer = new XmlSerializer(typeof(Configuration));
                     Settings = (Configuration)serializer.Deserialize(stream);
                 }
-               _MainWindow.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(Settings.BackgroundSource));
+                _MainWindow.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(Settings.BackgroundSource));
+                MainGird.Children.Remove(Chara);
             }
             else
             {
                 Settings = new Configuration();
                 MessageBox.Show("configuration.xml缺失...请联系系统管理员(网管)\n     (如果你们班网管没有参与本项目那我也没办法了-callG");
-                _MainWindow.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(Environment.CurrentDirectory + @"\src\CharaPink.png")));
             }
 #endregion
         }
 
         #region UI
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AbuotButton_Click(object sender, RoutedEventArgs e)
         {
             new About().Show();
         }
-#endregion
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            new Settings().Show();
+        }
+        #endregion
 
         #region code
         private void KillMyDocument(string Path)
@@ -113,6 +117,6 @@ namespace Quick_Launcher
                 MessageBox.Show(e.Message, "杀毒错误");
             }
         }
-#endregion
+        #endregion
     }
 }

@@ -5,11 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
-    <!--Window.Background>
-        <ImageBrush ImageSource="src/CharaPink.png"/>
-    </-->
-    <Grid>
+        Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Background="#FFFF7E9D">
+    <Grid x:Name="MainGird">
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
             <RowDefinition />
@@ -17,9 +14,10 @@
 
         <Label Grid.Row="0" Content="  Qucik Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="#FFF0EAF9" Foreground="Black" Width="1920" FontWeight="Medium"/>
         <Grid Grid.Row="1">
-            <Button Content="About" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Click="Button_Click" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="10,10,0,0" Height="120"/>
+            <Button Content="About" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Click="AboutButton_Click" Style="{DynamicResource BaseButton}" FontSize="30" Margin="10,10,0,0" Height="55" FontWeight="Thin"/>
+            <Button Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Click="SettingsButton_Cilck" Style="{DynamicResource BaseButton}" FontSize="30" Margin="145,10,0,0" Height="55" FontWeight="Thin"/>
         </Grid>
-        <Image HorizontalAlignment="Left" Height="1020" Margin="1160,55,0,0" VerticalAlignment="Top" Width="760" Source="src/Chara.jpg" Grid.RowSpan="2"/>
+        <Image x:Name="Chara" HorizontalAlignment="Left" Height="1020" Margin="1160,55,0,0" VerticalAlignment="Top" Width="760" Source="src/Chara.jpg" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
