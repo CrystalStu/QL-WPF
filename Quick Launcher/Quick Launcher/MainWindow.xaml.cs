@@ -22,6 +22,7 @@ namespace Quick_Launcher
         }
         public MainWindow()
         {
+            InitializeComponent();
             #region 初始化config
             string path = Environment.CurrentDirectory + @"\configuration.xml";
             if (File.Exists(path))
@@ -37,9 +38,9 @@ namespace Quick_Launcher
             {
                 Settings = new Configuration();
                 MessageBox.Show("configuration.xml缺失...请联系系统管理员(网管)\n     (如果你们班网管没有参与本项目那我也没办法了-callG");
+                _MainWindow.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(Environment.CurrentDirectory + @"\src\CharaPink.png")));
             }
 #endregion
-            InitializeComponent();
         }
 
         #region UI

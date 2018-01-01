@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
         Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
-    <Window.Background>
+    <!--Window.Background>
         <ImageBrush ImageSource="src/CharaPink.png"/>
-    </Window.Background>
+    </-->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
