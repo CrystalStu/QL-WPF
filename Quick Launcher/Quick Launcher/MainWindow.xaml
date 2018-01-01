@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Background="#FFFF7E9D">
+        Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" Background="#FFFF7E9D" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="  Qucik Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="#FFF0EAF9" Foreground="Black" Width="1920" FontWeight="Medium"/>
+        <Label Grid.Row="0" Content="  Quick Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="#FFF0EAF9" Foreground="Black" Width="1920" FontWeight="Medium" MouseDoubleClick="Label_MouseDoubleClick"/>
         <Grid Grid.Row="1">
             <Button Content="About" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Click="Button_Click" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="10,10,0,0" Height="120"/>
         </Grid>

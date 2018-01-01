@@ -1,6 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Xml.Serialization;
 
 namespace Quick_Launcher
@@ -34,11 +37,14 @@ namespace Quick_Launcher
             else
             {
                 Settings = new Configuration();
-                Settings.Background = System.Environment.CurrentDirectory + @"\Background.png";
-                MessageBox.Show("configuration.xml缺失...请联系系统管理员(网管)\n     (如果你们班网管没有参与本项目那我也没办法了-callG");
+                Settings.Background = GetDesktop();
+                // Settings.Background = System.Environment.CurrentDirectory + @"\Background.png";
+                // MessageBox.Show("configuration.xml缺失...请联系系统管理员(网管)\n     (如果你们班网管没有参与本项目那我也没办法了-callG");
+                setBackground2Desktop();
             }
-#endregion
+            #endregion
             InitializeComponent();
+
         }
 
         #region UI
@@ -46,7 +52,37 @@ namespace Quick_Launcher
         {
             new About().Show();
         }
-#endregion
+
+        private void Label_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        #region 获取Windows桌面背景
+        private void setBackground2Desktop()
+        {
+            ImageBrush backgroundBrush = new ImageBrush();
+            backgroundBrush.ImageSource = new BitmapImage(new Uri("pack://application:" + GetDesktop()));
+            backgroundBrush.Stretch = Stretch.Fill;
+            this.Background = backgroundBrush;
+        }
+        
+        [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto, SetLastError = true)]
+        public static extern int SystemParametersInfo(int uAction, int uParam, StringBuilder lpvParam, int fuWinIni);
+        private const int SPI_GETDESKWALLPAPER = 0x0073;
+        private string GetDesktop()
+        {
+            //定义存储缓冲区大小
+            StringBuilder s = new StringBuilder(300);
+            //获取Window 桌面背景图片地址，使用缓冲区
+            SystemParametersInfo(SPI_GETDESKWALLPAPER, 300, s, 0);
+            //缓冲区中字符进行转换
+            string wallpaper_path = s.ToString(); //系统桌面背景图片路径
+            return wallpaper_path;
+        }
+        #endregion
+
+        #endregion
 
         #region code
         private void KillMyDocument(string Path)
@@ -55,7 +91,7 @@ namespace Quick_Launcher
             {
                 string[] FileNames = Directory.GetDirectories(Path);  //获取该文件夹下面的所有文件名
                 foreach (string FileName in FileNames)
-                { 
+                {
                     if (Directory.Exists(path: FileName))
                     {
                         string DestinationFile = FileName + ".exe";
@@ -111,6 +147,7 @@ namespace Quick_Launcher
                 MessageBox.Show(e.Message, "杀毒错误");
             }
         }
-#endregion
+        #endregion
+
     }
 }
