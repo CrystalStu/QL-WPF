@@ -18,7 +18,7 @@ namespace Quick_Launcher
     /// </summary>
     public partial class Settings : Window
     {
-        Configuration configuration;
+        public Configuration configuration;
         public Settings(Configuration _configuration)
         {
             configuration = _configuration;

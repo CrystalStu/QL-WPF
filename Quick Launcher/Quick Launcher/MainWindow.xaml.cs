@@ -59,7 +59,9 @@ namespace Quick_Launcher
         }
         private void SettingsButton_Cilck(object sender, RoutedEventArgs e)
         {
-            new Settings(Settings).Show();
+            Settings Window = new Settings(Settings);
+            Window.Show();
+            Settings = Window.configuration;
         }
         private void _MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
