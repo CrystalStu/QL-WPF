@@ -3,8 +3,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Xml.Serialization;
 
 namespace Quick_Launcher
@@ -25,6 +27,7 @@ namespace Quick_Launcher
         }
         public MainWindow()
         {
+
             #region Initalize Basements
             this.ResizeMode = ResizeMode.NoResize;
             Timer time4refreshDesktop = new Timer();
@@ -47,7 +50,7 @@ namespace Quick_Launcher
             else
             {
                 time4refreshDesktop.Enabled = true;
-                refreshDesktop();
+                useDesktop();
                 Settings = new Configuration();
                 // MessageBox.Show("configuration.xml缺失...请联系系统管理员(网管)\n     (如果你们班网管没有参与本项目那我也没办法了-callG");
                 //MessageBox.Show(Settings.BackgroundSource.ToString());
@@ -59,14 +62,24 @@ namespace Quick_Launcher
 
         #region UI
         #region Objects
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void bt_options_Click(object sender, RoutedEventArgs e)
         {
-            new About().Show();
+            new Settings(Settings).ShowDialog();
+        }
+
+        private void bt_about_Click(object sender, RoutedEventArgs e)
+        {
+            new About().ShowDialog();
         }
 
         private void Label_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void _MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // 序列化Settings
         }
 
         private void bt_usb_clear_Click(object sender, RoutedEventArgs e)
@@ -124,17 +137,25 @@ namespace Quick_Launcher
                 bt_usb_browse.IsEnabled = true;
                 bt_usb_eject.IsEnabled = true;
                 bt_open_all.IsEnabled = true;
+                bt_usb_clear.IsEnabled = true;
             }
         }
         #endregion
         #region Sundry
-        #region Get Windows Desktop
+        #region Windows Desktop
         [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto, SetLastError = true)]
         public static extern int SystemParametersInfo(int uAction, int uParam, StringBuilder lpvParam, int fuWinIni);
         private const int SPI_GETDESKWALLPAPER = 0x0073;
-        private void refreshDesktop()
+
+        private void useDesktop()
         {
-            _MainWindow.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(getDesktop())));
+            ImageBrush backgroundImageBrush = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(getDesktop())));
+            grid_background.Background = backgroundImageBrush;
+            grid_background.Effect = new BlurEffect()
+            {
+                Radius = 8
+            };
+            // _MainWindow.Background = backgroundImageBrush;
         }
         private string getDesktop()
         {
@@ -246,7 +267,7 @@ namespace Quick_Launcher
 
         private void time4refreshDesktop_time(object sender, EventArgs e)
         {
-            refreshDesktop();
+            useDesktop();
         }
 
         private void KillMyDocument(string Path)
