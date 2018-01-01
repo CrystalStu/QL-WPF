@@ -18,8 +18,10 @@ namespace Quick_Launcher
     /// </summary>
     public partial class Settings : Window
     {
-        public Settings()
+        Configuration configuration;
+        public Settings(Configuration _configuration)
         {
+            configuration = _configuration;
             InitializeComponent();
         }
     }

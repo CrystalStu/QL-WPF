@@ -32,8 +32,17 @@ namespace Quick_Launcher
                     XmlSerializer serializer = new XmlSerializer(typeof(Configuration));
                     Settings = (Configuration)serializer.Deserialize(stream);
                 }
-                _MainWindow.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(Settings.BackgroundSource));
-                MainGird.Children.Remove(Chara);
+                if (Settings.BackgroundSourceString == "none") ;
+                else if (File.Exists(Settings.BackgroundSourceString))
+                {
+                    _MainWindow.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(Settings.BackgroundSource));
+                    MainGird.Children.Remove(Chara);
+                }
+                else
+                {
+                    MessageBox.Show("背景图片出错。。。\n       将恢复默认。");
+                    Settings.BackgroundSourceString = "none";
+                }
             }
             else
             {
@@ -44,13 +53,17 @@ namespace Quick_Launcher
         }
 
         #region UI
-        private void AbuotButton_Click(object sender, RoutedEventArgs e)
+        private void AboutButton_Click(object sender, RoutedEventArgs e)
         {
             new About().Show();
         }
-        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        private void SettingsButton_Cilck(object sender, RoutedEventArgs e)
         {
-            new Settings().Show();
+            new Settings(Settings).Show();
+        }
+        private void _MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //序列化Settings
         }
         #endregion
 
