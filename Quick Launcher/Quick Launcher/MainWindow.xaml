@@ -5,19 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Background="#FFFF7E9D" Closing="_MainWindow_Closing">
-    <Grid x:Name="MainGird">
+        Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
+    <!--Window.Background>
+        <ImageBrush ImageSource="src/CharaPink.png"/>
+    </-->
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="  Qucik Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="#FFF0EAF9" Foreground="Black" Width="1920" FontWeight="Medium"/>
+        <Label Grid.Row="0" Content="  Quick Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Background="#FFF0EAF9" Foreground="Black" Width="1920" FontWeight="Medium" MouseDoubleClick="Label_MouseDoubleClick"/>
         <Grid Grid.Row="1">
-            <Button Content="About" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Click="AboutButton_Click" Style="{DynamicResource BaseButton}" FontSize="30" Margin="10,10,0,0" Height="55" FontWeight="Thin"/>
-            <Button Content="Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Click="SettingsButton_Cilck" Style="{DynamicResource BaseButton}" FontSize="30" Margin="145,10,0,0" Height="55" FontWeight="Thin"/>
+            <Button Content="关于" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Click="Button_Click" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1747.186,957.356,0,0" Height="53.644" Opacity="0.8"/>
+            <Button x:Name="bt_usb_browse" Content="浏览" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,680.492,0,0" Height="53.644" Opacity="0.8" Click="bt_usb_browse_Click" IsEnabled="False"/>
+            <Button x:Name="bt_usb_eject" Content="弹出" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,739.136,0,0" Height="53.644" Opacity="0.8" IsEnabled="False" Click="bt_usb_eject_Click"/>
+            <Button x:Name="bt_usb_public" Content="公用" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,797.78,0,0" Height="53.644" Opacity="0.8" Click="bt_usb_public_Click"/>
+            <Button x:Name="bt_open_all" Content="全部" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,856.424,0,0" Height="53.644" Opacity="0.8" IsEnabled="False"/>
+            <Button x:Name="bt_usb_clear" Content="取消选择" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,621.848,0,0" Height="53.644" Opacity="0.8" IsEnabled="False" Click="bt_usb_clear_Click"/>
         </Grid>
-        <Image x:Name="Chara" HorizontalAlignment="Left" Height="1020" Margin="1160,55,0,0" VerticalAlignment="Top" Width="760" Source="src/Chara.jpg" Grid.RowSpan="2"/>
+        <ListBox x:Name="listUsb" HorizontalAlignment="Left" Height="1021" VerticalAlignment="Top" Width="1028.983" Margin="10,0,0,0" Grid.Row="1" Opacity="0.8" FontSize="24" SelectionChanged="listUsb_SelectionChanged"/>
 
     </Grid>
 </Window>

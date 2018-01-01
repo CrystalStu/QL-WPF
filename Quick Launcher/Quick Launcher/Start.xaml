@@ -9,6 +9,6 @@
     <Grid>
         <Label Content="Quick Launcher" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="72"/>
         <Label Content="  Loading..." HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" FontSize="18" Width="800" Background="#FF1E1E1E"/>
-        <MediaElement Source="file://D:\文档\Visual Studio 2017\Projects\Quick Launcher\Quick Launcher\src\loading.gif" HorizontalAlignment="Left" Height="100" Margin="700,166.4,0,0" VerticalAlignment="Top" Width="100"/>
+        <MediaElement Source="src\loading.gif" HorizontalAlignment="Left" Height="100" Margin="700,166.4,0,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </Window>
