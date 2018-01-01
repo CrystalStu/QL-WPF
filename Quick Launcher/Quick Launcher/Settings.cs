@@ -8,6 +8,6 @@ namespace Quick_Launcher
     [Serializable]
     public class Configuration
     {
-        public string Background;
+        public Uri BackgroundSource;
     }
 }

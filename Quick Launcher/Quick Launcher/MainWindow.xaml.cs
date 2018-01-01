@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
+using System.Windows.Media;
 using System.Xml.Serialization;
 
 namespace Quick_Launcher
@@ -22,7 +23,7 @@ namespace Quick_Launcher
         public MainWindow()
         {
             #region 初始化config
-            string path = System.Environment.CurrentDirectory + @"\configuration.xml";
+            string path = Environment.CurrentDirectory + @"\configuration.xml";
             if (File.Exists(path))
             {
                 using (var stream = File.OpenRead(path))
@@ -30,11 +31,11 @@ namespace Quick_Launcher
                     XmlSerializer serializer = new XmlSerializer(typeof(Configuration));
                     Settings = (Configuration)serializer.Deserialize(stream);
                 }
+               _MainWindow.Background = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(Settings.BackgroundSource));
             }
             else
             {
                 Settings = new Configuration();
-                Settings.Background = System.Environment.CurrentDirectory + @"\Background.png";
                 MessageBox.Show("configuration.xml缺失...请联系系统管理员(网管)\n     (如果你们班网管没有参与本项目那我也没办法了-callG");
             }
 #endregion
