@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Settings" Height="300" Width="300" Style="{DynamicResource WindowStyle}" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None">
+        Title="Settings" Height="300" Width="300" Style="{DynamicResource WindowStyle}" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize" WindowStyle="None">
     <Grid>
-        <Button Content="确定" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Click="AboutButton_Click" Style="{DynamicResource BaseButton}" Margin="161,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7"/>
-        <Button Content="取消" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Click="AboutButton_Click" Style="{DynamicResource BaseButton}" Margin="226,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7"/>
-        <Label Content="  Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF0078D2" Width="296" Foreground="White" Height="25"/>
+        <Button x:Name="bt_apply" Content="确定" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Style="{DynamicResource BaseButton}" Margin="161,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7"/>
+        <Button x:Name="bt_cancel" Content="取消" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Style="{DynamicResource BaseButton}" Margin="226,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7" Click="bt_cancel_Click"/>
+        <Label Content="选项" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF0078D2" Width="296" Foreground="White" Height="25"/>
     </Grid>
 </Window>

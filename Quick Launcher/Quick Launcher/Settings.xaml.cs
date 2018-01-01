@@ -24,5 +24,10 @@ namespace Quick_Launcher
             configuration = _configuration;
             InitializeComponent();
         }
+
+        private void bt_cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
