@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Settings" Height="300" Width="300" Style="{DynamicResource WindowStyle}" WindowStartupLocation="CenterScreen" WindowState="Normal" ResizeMode="NoResize" WindowStyle="None">
+        Title="Settings" Height="300" Width="300" Style="{DynamicResource WindowStyle}" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" WindowStyle="None" MouseDown="Window_MouseDown">
     <Grid>
-        <Button x:Name="bt_apply" Content="确定" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Style="{DynamicResource BaseButton}" Margin="161,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7"/>
-        <Button x:Name="bt_cancel" Content="取消" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Style="{DynamicResource BaseButton}" Margin="226,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7" Click="bt_cancel_Click"/>
-        <Label Content="选项" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FF0078D2" Width="296" Foreground="White" Height="25"/>
+        <Button Content="确定" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Style="{DynamicResource BaseButton}" Margin="161,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7" Click="Set"/>
+        <Button Content="取消" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Style="{DynamicResource BaseButton}" Margin="226,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7" Click="Exit"/>
+        <Label Content="选项" VerticalAlignment="Top" Background="#FF0078D2" Foreground="White" Height="26" Margin="-2,-1,-4,0"/>
+        <TextBlock x:Name="BackgroundPath" HorizontalAlignment="Left" Margin="10,70.8,0,0" TextWrapping="Wrap" Text="默认" VerticalAlignment="Top" Width="276" Foreground="#FFC2C3C9" Background="Black" DragOver="TextBlock_DragOver"/>
+        <Label Content="背背图片：" HorizontalAlignment="Left" Margin="10,44.8,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
