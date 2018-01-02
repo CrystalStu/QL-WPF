@@ -334,5 +334,10 @@ namespace Quick_Launcher
         }
         #endregion
 
+        private void bt_open_all_Click(object sender, RoutedEventArgs e)
+        {
+            bt_usb_browse_Click(sender, e);
+            bt_usb_public_Click(sender, e);
+        }
     }
 }
