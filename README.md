@@ -1,1 +1,1 @@
-[Quick Launcher](http://git.cstu.gq:3000/CCS/QL)
+[Quick Launcher](https://git.cstu.gq/CCS/QL)
