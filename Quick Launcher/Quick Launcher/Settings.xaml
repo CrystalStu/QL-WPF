@@ -11,6 +11,6 @@
         <Button Content="取消" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Style="{DynamicResource BaseButton}" Margin="226,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7" Click="Exit"/>
         <Label Content="选项" VerticalAlignment="Top" Background="#FF0078D2" Foreground="White" Height="26" Margin="-2,-1,-4,0"/>
         <TextBlock x:Name="BackgroundPath" HorizontalAlignment="Left" Margin="10,70.8,0,0" TextWrapping="Wrap" Text="默认" VerticalAlignment="Top" Width="276" Foreground="#FFC2C3C9" Background="Black" DragOver="TextBlock_DragOver"/>
-        <Label Content="背背图片：" HorizontalAlignment="Left" Margin="10,44.8,0,0" VerticalAlignment="Top"/>
+        <Label Content="背景图片：" HorizontalAlignment="Left" Margin="10,44.8,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

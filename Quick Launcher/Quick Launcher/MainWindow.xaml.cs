@@ -138,7 +138,7 @@ namespace Quick_Launcher
             }
         }
 
-        private void BtOpenAllClick(object sender, RoutedEventArgs e)
+        private void bt_open_all_Click(object sender, RoutedEventArgs e)
         {
             bt_usb_browse_Click(sender, e);
             bt_usb_public_Click(sender, e);
@@ -354,8 +354,7 @@ namespace Quick_Launcher
                 System.Windows.Forms.MessageBox.Show(e.Message, "杀毒错误");
             }
         }
-#endregion
 
-        
+        #endregion
     }
 }
