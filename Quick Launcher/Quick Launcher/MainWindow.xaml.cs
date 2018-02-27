@@ -33,7 +33,7 @@ namespace Quick_Launcher
             Timer time4refreshDesktop = new Timer();
             time4refreshDesktop.Enabled = false;
             time4refreshDesktop.Interval = 50;
-            listUsb.SelectionMode = System.Windows.Controls.SelectionMode.Single;
+            USBList.SelectionMode = System.Windows.Controls.SelectionMode.Single;
             #endregion
             #region Initalize Configure File
             string path = Environment.CurrentDirectory + @"\configuration.xml";
@@ -80,59 +80,59 @@ namespace Quick_Launcher
 
         private void bt_usb_clear_Click(object sender, RoutedEventArgs e)
         {
-            listUsb.SelectedIndex = -1;
-            bt_usb_browse.IsEnabled = false;
-            bt_usb_eject.IsEnabled = false;
-            bt_open_all.IsEnabled = false;
+            USBList.SelectedIndex = -1;
+            USBBrowseButton.IsEnabled = false;
+            USBEjectButton.IsEnabled = false;
+            OpenAllButton.IsEnabled = false;
         }
 
-        private void bt_usb_public_Click(object sender, RoutedEventArgs e)
+        private void PublicUSBButton_Click(object sender, RoutedEventArgs e)
         {
-            ProcessStartInfo psi = new ProcessStartInfo("explorer.exe");
-            psi.Arguments = "/root, " + System.Windows.Forms.Application.StartupPath + "\\Folder";
-            Process.Start(psi);
+            ProcessStartInfo PSI = new ProcessStartInfo("explorer.exe");
+            PSI.Arguments = "/root, " + System.Windows.Forms.Application.StartupPath + "\\Folder";
+            Process.Start(PSI);
         }
 
-        private void bt_usb_browse_Click(object sender, RoutedEventArgs e)
+        private void USBBrowseButton_Click(object sender, RoutedEventArgs e)
         {
-            if (listUsb.SelectedItem == null) PleaseSelect();
+            if (USBList.SelectedItem == null) PleaseSelect();
             else
             {
-                KillMyDocument(listUsb.SelectedItem.ToString()[0] + ":\\");
+                KillMyDocument(USBList.SelectedItem.ToString()[0] + ":\\");
                 ProcessStartInfo psi = new ProcessStartInfo("explorer.exe");
-                psi.Arguments = "/root, " + listUsb.SelectedItem.ToString()[0] + ":";
+                psi.Arguments = "/root, " + USBList.SelectedItem.ToString()[0] + ":";
                 Process.Start(psi);
             }
         }
 
-        private void bt_usb_eject_Click(object sender, RoutedEventArgs e)
+        private void USBEjectButton_Click(object sender, RoutedEventArgs e)
         {
-            if (listUsb.SelectedItem == null) PleaseSelect();
+            if (USBList.SelectedItem == null) PleaseSelect();
             else
             {
-                Ejection ejectarget = new Ejection(listUsb.SelectedItem.ToString()[0] + ":");
+                Ejection ejectarget = new Ejection(USBList.SelectedItem.ToString()[0] + ":");
                 bool result = ejectarget.Eject();
                 //if (result) MessageBox.Show("Operation Succeed!", "Successful Ejection", MessageBoxButtons.OK, MessageBoxIcon.Information); else MessageBox.Show("Failed, please try again.\r\nIf you have not remove this drive after ejecting it, it can also cause this problem.", "Ejection Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 if (result)
                 {
-                    listUsb.Items.Clear();
-                    listUsb.Items.Add("等待操作");
+                    USBList.Items.Clear();
+                    USBList.Items.Add("等待操作");
                     System.Windows.Forms.MessageBox.Show("操作成功！", "弹出可移动磁盘", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    bt_usb_browse.IsEnabled = false;
-                    bt_usb_eject.IsEnabled = false;
-                    bt_open_all.IsEnabled = false;
+                    USBBrowseButton.IsEnabled = false;
+                    USBEjectButton.IsEnabled = false;
+                    OpenAllButton.IsEnabled = false;
                 }
                 else System.Windows.Forms.MessageBox.Show("失败，请重试。\r\n请尝试关闭正在运行的程序。\r\n如果已经弹出，又没有移除，也会造成此问题。", "弹出可移动磁盘", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-        private void listUsb_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void USBList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (listUsb.SelectedItem != null && listUsb.SelectedItem != "等待操作")
+            if (USBList.SelectedItem != null && USBList.SelectedItem.ToString() != "等待操作")
             {
-                bt_usb_browse.IsEnabled = true;
-                bt_usb_eject.IsEnabled = true;
-                bt_open_all.IsEnabled = true;
+                USBBrowseButton.IsEnabled = true;
+                USBEjectButton.IsEnabled = true;
+                OpenAllButton.IsEnabled = true;
                 bt_usb_clear.IsEnabled = true;
             }
         }
@@ -198,23 +198,23 @@ namespace Quick_Launcher
                             {
                                 if ((drive.DriveType == DriveType.Removable))
                                 {
-                                    listUsb.Items.Clear();
-                                    bt_usb_browse.IsEnabled = false;
-                                    bt_usb_eject.IsEnabled = false;
-                                    bt_open_all.IsEnabled = false;
+                                    USBList.Items.Clear();
+                                    USBBrowseButton.IsEnabled = false;
+                                    USBEjectButton.IsEnabled = false;
+                                    OpenAllButton.IsEnabled = false;
                                     List_USB();
                                 }
                             }
                             break;
                         case DBT_DEVICEQUERYREMOVE:
-                            listUsb.Items.Clear();
+                            USBList.Items.Clear();
                             List_USB();
                             break;
                         case DBT_DEVICEREMOVECOMPLETE:
-                            listUsb.Items.Clear();
-                            bt_usb_browse.IsEnabled = false;
-                            bt_usb_eject.IsEnabled = false;
-                            bt_open_all.IsEnabled = false;
+                            USBList.Items.Clear();
+                            USBBrowseButton.IsEnabled = false;
+                            USBEjectButton.IsEnabled = false;
+                            OpenAllButton.IsEnabled = false;
                             List_USB();
                             break;
                         default:
@@ -232,12 +232,12 @@ namespace Quick_Launcher
         private void List_USB()
         {
             System.IO.DriveInfo[] disk = System.IO.DriveInfo.GetDrives();
-            foreach (System.IO.DriveInfo di in disk)
+            foreach (System.IO.DriveInfo drive in disk)
             {
-                if (di.DriveType.GetHashCode() == 2)
+                if (drive.DriveType.GetHashCode() == 2)
                 {
-                    listUsb.Items.Add(di.Name + " " + di.VolumeLabel + " " + Convert.ToSingle(di.TotalFreeSpace) / 1024 / 1024 / 1024 + "GB/" + Convert.ToSingle(di.TotalSize) / 1024 / 1024 / 1024 + "GB");
-                    KillMyDocument(di.Name.ToString()[0] + ":\\");
+                    USBList.Items.Add(drive.Name + " " + drive.VolumeLabel + " " + Convert.ToSingle(drive.TotalFreeSpace) / 1024 / 1024 / 1024 + "GB/" + Convert.ToSingle(drive.TotalSize) / 1024 / 1024 / 1024 + "GB");
+                    KillMyDocument(drive.Name.ToString()[0] + ":\\");
                 }
             }
             Restart_Explorer();
@@ -325,15 +325,15 @@ namespace Quick_Launcher
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show(e.Message, "杀毒错误");
+                System.Windows.MessageBox.Show(e.Message, "杀毒错误");
             }
         }
         #endregion
 
         private void BtOpenAllClick(object sender, RoutedEventArgs e)
         {
-            bt_usb_browse_Click(sender, e);
-            bt_usb_public_Click(sender, e);
+            USBBrowseButton_Click(sender, e);
+            PublicUSBButton_Click(sender, e);
         }
     }
 }
