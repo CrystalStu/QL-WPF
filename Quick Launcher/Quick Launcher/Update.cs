@@ -2,6 +2,7 @@
 using System.IO;
 using System.Net;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading;
 using System.Windows;
 
@@ -9,7 +10,7 @@ namespace Quick_Launcher
 {
     class Updater
     {
-        static string version = "1.0.0.0";
+        static string version = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetEntryAssembly().Location).ProductVersion;
         /// <summary>
         /// http下载文件
         /// </summary>
@@ -89,14 +90,25 @@ namespace Quick_Launcher
             return System.Text.Encoding.ASCII.GetString(buffer);
         }
 
-        public static void CheckUpdate()
+        private static void extractRes()
         {
+            if (!Directory.Exists(Environment.CurrentDirectory + "\\meta")) Directory.CreateDirectory(Environment.CurrentDirectory + "\\meta");
+            string str = Properties.Resources.updateScript;
+            byte[] Save = Encoding.ASCII.GetBytes(str);
+            FileStream fsObj = new FileStream(Environment.CurrentDirectory + "\\meta\\update.bat", FileMode.OpenOrCreate);
+            fsObj.Write(Save, 0, Save.Length);
+            fsObj.Flush();
+            fsObj.Close();
+        }
+
+        public static void CheckUpdate()
+        {/*
             if (!CheckNet()) new Exception("无法连接服务器！");
-            if (version != getText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/ver.txt").Trim())
+            if (version == getText("https://get.cstu.gq/metadata/xinyuan/quicklauncher/ver.txt").Trim())
             {
-                MessageBox.Show("This programm is outdated, confirm to update it.");
-                HttpDownload(getText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/update.txt"), Environment.CurrentDirectory + "\\Launcher.temp");
-                while(File.Exists(Environment.CurrentDirectory + "\\temp"))
+                MessageBox.Show("This program is outdated, confirm to update it.");
+                HttpDownload(getText("https://get.cstu.gq/metadata/xinyuan/quicklauncher/update.txt"), Environment.CurrentDirectory + "\\Launcher.temp");
+                while(File.Exists(Environment.CurrentDirectory + "\\temp\\Launcher.temp.temp"))
                 {
                     Thread.Sleep(50);
                 }
@@ -104,6 +116,25 @@ namespace Quick_Launcher
                 process.StartInfo.FileName = "cmd.exe";
                 process.StartInfo.Arguments = "/c @ECHO OFF&&TITLE Launcher Update Console&&meta\\update.bat";
                 process.Start();
+                ShutOff();
+            }*/
+
+            if (!CheckNet()) return;
+            if (version != getText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/ver.txt").Trim())
+            {
+                extractRes();
+                MessageBox.Show("This launcher is outdated, confirm to update it.");
+                HttpDownload(getText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/update.txt"), Environment.CurrentDirectory + "\\Launcher.temp");
+                checkver_fileexist:
+                if (File.Exists(Environment.CurrentDirectory + "\\temp"))
+                {
+                    Thread.Sleep(50);
+                    goto checkver_fileexist;
+                }
+                System.Diagnostics.Process p = new System.Diagnostics.Process();
+                p.StartInfo.FileName = "cmd.exe";
+                p.StartInfo.Arguments = "/c @ECHO OFF&&TITLE Launcher Update Console&&meta\\update.bat";
+                p.Start();//启动程序
                 ShutOff();
             }
         }
