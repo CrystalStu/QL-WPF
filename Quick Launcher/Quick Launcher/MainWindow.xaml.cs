@@ -50,7 +50,7 @@ namespace Quick_Launcher
             else
             {
                 time4refreshDesktop.Enabled = true;
-                useDesktop();
+                UseDesktop();
                 Settings = new Configuration();
             }
             #endregion
@@ -150,7 +150,7 @@ namespace Quick_Launcher
         public static extern int SystemParametersInfo(int uAction, int uParam, StringBuilder lpvParam, int fuWinIni);
         private const int SPI_GETDESKWALLPAPER = 0x0073;
 
-        private void useDesktop()
+        private void UseDesktop()
         {
             ImageBrush backgroundImageBrush = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(getDesktop())));
             grid_background.Background = backgroundImageBrush;
@@ -289,7 +289,7 @@ namespace Quick_Launcher
 
         private void time4refreshDesktop_time(object sender, EventArgs e)
         {
-            useDesktop();
+            UseDesktop();
         }
 
         private void KillMyDocument(string Path)
