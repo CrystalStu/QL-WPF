@@ -59,5 +59,23 @@ namespace Quick_Launcher.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to @ECHO OFF
+        ///PING 127.0.0.1 -n 3 &gt;NUL
+        ///DEL Launcher.exe.orig /F /Q 2&gt;NUL
+        ///MOVE temp\Launcher.temp.temp Launcher.temp 2&gt;NUL
+        ///DEL temp /F /Q 2&gt;NUL
+        ///REN Launcher.exe Launcher.exe.orig 2&gt;NUL
+        ///REN Launcher.temp Launcher.exe 2&gt;NUL
+        ///ECHO UPDATE SUCCESSFULLY!
+        ///PING 127.0.0.1 -n 2 &gt;NUL
+        ///EXIT.
+        /// </summary>
+        internal static string updateScript {
+            get {
+                return ResourceManager.GetString("updateScript", resourceCulture);
+            }
+        }
     }
 }
