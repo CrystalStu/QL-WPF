@@ -26,17 +26,24 @@
                 <ColumnDefinition Width="1327*"/>
                 <ColumnDefinition Width="589*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="AboutButton" Content="关于" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="420.186,957.356,0,0" Height="55" Opacity="0.8" Click="bt_about_Click" Grid.Column="1"/>
-            <Button x:Name="USBBrowseButton" Content="浏览" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,680.492,0,0" Height="55" Opacity="0.8" Click="USBBrowseButton_Click" IsEnabled="False"/>
-            <Button x:Name="USBEjectButton" Content="弹出" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,739.136,0,0" Height="55" Opacity="0.8" IsEnabled="False" Click="USBEjectButton_Click"/>
-            <Button x:Name="USBPublicButton" Content="公用" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,797.78,0,0" Height="55" Opacity="0.8" Click="PublicUSBButton_Click"/>
-            <Button x:Name="OpenAllButton" Content="全部" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,856.424,0,0" Height="55" Opacity="0.8" IsEnabled="False" Click="BtOpenAllClick"/>
-            <Button x:Name="bt_usb_clear" Content="取消选择" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,621.848,0,0" Height="55" Opacity="0.8" IsEnabled="False" Click="bt_usb_clear_Click"/>
-            <Button x:Name="bt_options" Content="选项" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="420.186,898.712,0,0" Height="55" Opacity="0.8" Click="BtOptions_Click" Grid.Column="1"/>
+            <Button x:Name="bt_about" Content="关于" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="420.186,957.356,0,0" Height="53.644" Opacity="0.8" Click="bt_about_Click" Grid.Column="1"/>
+            <Button x:Name="bt_usb_browse" Content="浏览" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,680.492,0,0" Height="53.644" Opacity="0.8" Click="bt_usb_browse_Click" IsEnabled="False"/>
+            <Button x:Name="bt_usb_eject" Content="弹出" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,739.136,0,0" Height="53.644" Opacity="0.8" IsEnabled="False" Click="bt_usb_eject_Click"/>
+            <Button x:Name="bt_usb_public" Content="公用" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,797.78,0,0" Height="53.644" Opacity="0.8" Click="bt_usb_public_Click"/>
+            <Button x:Name="bt_open_all" Content="全部" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,856.424,0,0" Height="53.644" Opacity="0.8" IsEnabled="False" Click="bt_open_all_Click"/>
+            <Button x:Name="bt_usb_clear" Content="取消选择" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1044.729,621.848,0,0" Height="53.644" Opacity="0.8" IsEnabled="False" Click="bt_usb_clear_Click"/>
+            <Button x:Name="bt_options" Content="选项" HorizontalAlignment="Left" VerticalAlignment="Top" Width="158.814" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="420.186,898.712,0,0" Height="53.644" Opacity="0.8" Click="BtOptions_Click" Grid.Column="1"/>
         </Grid>
 
-        <Label Grid.Row="0" Content="  Quick Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Foreground="Black" Width="1920" FontWeight="Medium" MouseDoubleClick="Label_MouseDoubleClick" Opacity="0.5" Margin="0,-10,-4,0"/>
-        <ListBox x:Name="USBList" HorizontalAlignment="Left" Height="1028" VerticalAlignment="Top" Width="1028.983" Margin="10,48,0,0" Opacity="0.8" FontSize="24" SelectionChanged="USBList_SelectionChanged" Grid.RowSpan="2"/>
+        <Label Grid.Row="0" Content="  Quick Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Foreground="White" Width="1920" FontWeight="Medium" MouseDoubleClick="Label_MouseDoubleClick" Margin="0,-10,-4,0">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Offset="1" Color="#00000000"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <ListBox x:Name="listUsb" HorizontalAlignment="Left" Height="1028" VerticalAlignment="Top" Width="1028.983" Margin="10,48,0,0" Opacity="0.8" FontSize="24" SelectionChanged="listUsb_SelectionChanged" Grid.RowSpan="2"/>
     </Grid>
 
 </Window>
