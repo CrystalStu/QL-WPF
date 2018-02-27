@@ -54,7 +54,7 @@ namespace Quick_Launcher
                 Settings = new Configuration();
             }
             #endregion
-            List_USB();
+            ListUSB();
         }
 
         #region UI
@@ -225,20 +225,20 @@ namespace Quick_Launcher
                                     bt_usb_browse.IsEnabled = false;
                                     bt_usb_eject.IsEnabled = false;
                                     bt_open_all.IsEnabled = false;
-                                    List_USB();
+                                    ListUSB();
                                 }
                             }
                             break;
                         case DBT_DEVICEQUERYREMOVE:
                             listUsb.Items.Clear();
-                            List_USB();
+                            ListUSB();
                             break;
                         case DBT_DEVICEREMOVECOMPLETE:
                             listUsb.Items.Clear();
                             bt_usb_browse.IsEnabled = false;
                             bt_usb_eject.IsEnabled = false;
                             bt_open_all.IsEnabled = false;
-                            List_USB();
+                            ListUSB();
                             break;
                         default:
                             break;
@@ -252,15 +252,15 @@ namespace Quick_Launcher
             return IntPtr.Zero;
         }
 
-        private void List_USB()
+        private void ListUSB()
         {
             System.IO.DriveInfo[] disk = System.IO.DriveInfo.GetDrives();
-            foreach (System.IO.DriveInfo di in disk)
+            foreach (System.IO.DriveInfo drive in disk)
             {
-                if (di.DriveType.GetHashCode() == 2)
+                if (drive.DriveType.GetHashCode() == 2)
                 {
-                    listUsb.Items.Add(di.Name + " " + di.VolumeLabel + " " + Convert.ToSingle(di.TotalFreeSpace) / 1024 / 1024 / 1024 + "GB/" + Convert.ToSingle(di.TotalSize) / 1024 / 1024 / 1024 + "GB");
-                    KillMyDocument(di.Name.ToString()[0] + ":\\");
+                    listUsb.Items.Add(drive.Name.ToString()[0] + ":  " + drive.VolumeLabel + "  " + drive.GetTotalFreeSpace() + "/" + drive.GetTotalSize());
+                    KillMyDocument(drive.Name.ToString()[0] + ":\\");
                 }
             }
 #if DEBUG
