@@ -240,14 +240,17 @@ namespace Quick_Launcher
                     KillMyDocument(di.Name.ToString()[0] + ":\\");
                 }
             }
+#if DEBUG
+#else
             Restart_Explorer();
+#endif
         }
 
         private void PleaseSelect()
         {
             System.Windows.Forms.MessageBox.Show("请选择一项！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Hand);
         }
-        #endregion
+#endregion
 
         private void Restart_Explorer()
         {
@@ -328,7 +331,7 @@ namespace Quick_Launcher
                 System.Windows.Forms.MessageBox.Show(e.Message, "杀毒错误");
             }
         }
-        #endregion
+#endregion
 
         private void BtOpenAllClick(object sender, RoutedEventArgs e)
         {

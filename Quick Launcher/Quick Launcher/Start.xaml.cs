@@ -14,7 +14,8 @@ namespace Quick_Launcher
         public Start()
         {
             InitializeComponent();
-#if false
+#if DEBUG
+#else
             try
             {
                 Updater.CheckUpdate();
