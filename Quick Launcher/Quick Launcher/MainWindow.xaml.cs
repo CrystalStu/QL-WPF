@@ -27,13 +27,12 @@ namespace Quick_Launcher
         }
         public MainWindow()
         {
-
+            InitializeComponent();
             #region Initalize Basements
             this.ResizeMode = ResizeMode.NoResize;
             Timer time4refreshDesktop = new Timer();
             time4refreshDesktop.Enabled = false;
             time4refreshDesktop.Interval = 50;
-            InitializeComponent();
             listUsb.SelectionMode = System.Windows.Controls.SelectionMode.Single;
             #endregion
             #region Initalize Configure File
@@ -52,9 +51,6 @@ namespace Quick_Launcher
                 time4refreshDesktop.Enabled = true;
                 useDesktop();
                 Settings = new Configuration();
-                // MessageBox.Show("configuration.xml缺失...请联系系统管理员(网管)\n     (如果你们班网管没有参与本项目那我也没办法了-callG");
-                //MessageBox.Show(Settings.BackgroundSource.ToString());
-                //if (Settings.BackgroundSource.ToString() == String.Empty) Settings.BackgroundSource = new Uri(GetDesktop());
             }
             #endregion
             List_USB();
@@ -62,7 +58,7 @@ namespace Quick_Launcher
 
         #region UI
         #region Objects
-        private void bt_options_Click(object sender, RoutedEventArgs e)
+        private void BtOptions_Click(object sender, RoutedEventArgs e)
         {
             new Settings(Settings).ShowDialog();
         }
@@ -334,7 +330,7 @@ namespace Quick_Launcher
         }
         #endregion
 
-        private void bt_open_all_Click(object sender, RoutedEventArgs e)
+        private void BtOpenAllClick(object sender, RoutedEventArgs e)
         {
             bt_usb_browse_Click(sender, e);
             bt_usb_public_Click(sender, e);
