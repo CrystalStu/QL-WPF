@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Xml.Serialization;
@@ -136,6 +137,12 @@ namespace Quick_Launcher
                 bt_usb_clear.IsEnabled = true;
             }
         }
+
+        private void BtOpenAllClick(object sender, RoutedEventArgs e)
+        {
+            bt_usb_browse_Click(sender, e);
+            bt_usb_public_Click(sender, e);
+        }
         #endregion
         #region Sundry
         #region Windows Desktop
@@ -168,6 +175,22 @@ namespace Quick_Launcher
         #endregion
 
         #region Code
+
+        #region WndProc_prep
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+            this.win_SourceInitialized(this, e);
+        }
+        void win_SourceInitialized(object sender, EventArgs e)
+        {
+            HwndSource hwndSource = PresentationSource.FromVisual(this) as HwndSource;
+            if (hwndSource != null)
+            {
+                hwndSource.AddHook(new HwndSourceHook(WndProc));
+            }
+        }
+        #endregion
 
         #region ScanDrives
         public const int WM_DEVICECHANGE = 0x219;
@@ -333,10 +356,6 @@ namespace Quick_Launcher
         }
 #endregion
 
-        private void BtOpenAllClick(object sender, RoutedEventArgs e)
-        {
-            bt_usb_browse_Click(sender, e);
-            bt_usb_public_Click(sender, e);
-        }
+        
     }
 }
