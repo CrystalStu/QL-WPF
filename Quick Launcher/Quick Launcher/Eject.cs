@@ -31,6 +31,7 @@ namespace Quick_Launcher
              uint dwFlagsAndAttributes,
              IntPtr hTemplateFile
         );
+
         [DllImport("kernel32.dll", ExactSpelling = true, SetLastError = true, CharSet = CharSet.Auto)]
         private static extern bool DeviceIoControl(
             IntPtr hDevice,
@@ -42,6 +43,7 @@ namespace Quick_Launcher
             out uint lpBytesReturned,
             IntPtr lpOverlapped
         );
+
         [DllImport("kernel32.dll", ExactSpelling = true, SetLastError = true, CharSet = CharSet.Auto)]
         private static extern bool DeviceIoControl(
             IntPtr hDevice,
@@ -53,6 +55,7 @@ namespace Quick_Launcher
             out uint lpBytesReturned,
             IntPtr lpOverlapped
         );
+
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool CloseHandle(IntPtr hObject);
@@ -65,6 +68,7 @@ namespace Quick_Launcher
         const int FSCTL_DISMOUNT_VOLUME = 0x00090020;
         const int IOCTL_STORAGE_EJECT_MEDIA = 0x2D4808;
         const int IOCTL_STORAGE_MEDIA_REMOVAL = 0x002D4804;
+
         /// <summary>
         /// 初始化设备句柄
         /// </summary>
@@ -74,6 +78,7 @@ namespace Quick_Launcher
             string filename = @"\\.\" + driveLetter[0] + ":";
             handle = CreateFile(filename, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, IntPtr.Zero, 0x3, 0, IntPtr.Zero);
         }
+
         /// <summary>
         /// 卸载u盘
         /// </summary>
@@ -87,6 +92,7 @@ namespace Quick_Launcher
             }
             return false;
         }
+
         private bool LockVolume(IntPtr handle)
         {
             uint byteReturned;
@@ -100,6 +106,7 @@ namespace Quick_Launcher
             }
             return false;
         }
+
         private bool PreventRemovalOfVolume(IntPtr handle, bool prevent)
         {
             byte[] buf = new byte[1];
@@ -107,16 +114,19 @@ namespace Quick_Launcher
             buf[0] = (prevent) ? (byte)1 : (byte)0;
             return DeviceIoControl(handle, IOCTL_STORAGE_MEDIA_REMOVAL, buf, 1, IntPtr.Zero, 0, out retVal, IntPtr.Zero);
         }
+
         private bool DismountVolume(IntPtr handle)
         {
             uint byteReturned;
             return DeviceIoControl(handle, FSCTL_DISMOUNT_VOLUME, IntPtr.Zero, 0, IntPtr.Zero, 0, out byteReturned, IntPtr.Zero);
         }
+
         private bool AutoEjectVolume(IntPtr handle)
         {
             uint byteReturned;
             return DeviceIoControl(handle, IOCTL_STORAGE_EJECT_MEDIA, IntPtr.Zero, 0, IntPtr.Zero, 0, out byteReturned, IntPtr.Zero);
         }
+
         public bool CloseVolume(IntPtr handle)
         {
             return CloseHandle(handle);

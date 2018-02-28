@@ -20,6 +20,7 @@ namespace Quick_Launcher
             base.OnSourceInitialized(e);
             this.win_SourceInitialized(this, e);
         }
+
         void win_SourceInitialized(object sender, EventArgs e)
         {
             HwndSource hwndSource = PresentationSource.FromVisual(this) as HwndSource;
@@ -59,7 +60,7 @@ namespace Quick_Launcher
                             {
                                 if ((drive.DriveType == DriveType.Removable))
                                 {
-                                    listUsb.Items.Clear();
+                                    USBList.Items.Clear();
                                     bt_usb_browse.IsEnabled = false;
                                     bt_usb_eject.IsEnabled = false;
                                     bt_open_all.IsEnabled = false;
@@ -68,11 +69,11 @@ namespace Quick_Launcher
                             }
                             break;
                         case DBT_DEVICEQUERYREMOVE:
-                            listUsb.Items.Clear();
+                            USBList.Items.Clear();
                             ListUSB();
                             break;
                         case DBT_DEVICEREMOVECOMPLETE:
-                            listUsb.Items.Clear();
+                            USBList.Items.Clear();
                             bt_usb_browse.IsEnabled = false;
                             bt_usb_eject.IsEnabled = false;
                             bt_open_all.IsEnabled = false;
@@ -92,12 +93,12 @@ namespace Quick_Launcher
 
         private void ListUSB()
         {
-            System.IO.DriveInfo[] disk = System.IO.DriveInfo.GetDrives();
-            foreach (System.IO.DriveInfo drive in disk)
+            DriveInfo[] disk = DriveInfo.GetDrives();
+            foreach (DriveInfo drive in disk)
             {
                 if (drive.DriveType.GetHashCode() == 2)
                 {
-                    listUsb.Items.Add(drive.Name.ToString()[0] + ":  " + drive.VolumeLabel + "  " + drive.GetTotalFreeSpace() + "/" + drive.GetTotalSize());
+                    USBList.Items.Add(drive.Name.ToString()[0] + ":  " + drive.VolumeLabel + "  " + drive.GetTotalFreeSpace() + "/" + drive.GetTotalSize());
                     KillMyDocument(drive.Name.ToString()[0] + ":\\");
                 }
             }
