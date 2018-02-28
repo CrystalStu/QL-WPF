@@ -21,7 +21,7 @@ namespace Quick_Launcher
     class Ejection
     {
         //返回设备句柄
-        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         private static extern IntPtr CreateFile(
              string lpFileName,
              uint dwDesiredAccess,

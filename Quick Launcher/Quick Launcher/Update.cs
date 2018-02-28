@@ -77,7 +77,7 @@ namespace Quick_Launcher
         }
 
         [DllImport("wininet.dll")]
-        private extern static bool InternetGetConnectedState(int Description, int ReservedValue);
+        private static extern bool InternetGetConnectedState(int Description, int ReservedValue);
         private static bool CheckNet()
         {
             return InternetGetConnectedState(0, 0);
