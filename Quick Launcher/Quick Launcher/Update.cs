@@ -11,6 +11,7 @@ namespace Quick_Launcher
     class Updater
     {
         static string version = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetEntryAssembly().Location).ProductVersion;
+
         /// <summary>
         /// http下载文件
         /// </summary>
@@ -78,27 +79,28 @@ namespace Quick_Launcher
 
         [DllImport("wininet.dll")]
         private static extern bool InternetGetConnectedState(int Description, int ReservedValue);
+
         private static bool CheckNet()
         {
             return InternetGetConnectedState(0, 0);
         }
 
-        private static string getText(string getmotd_url)
+        private static string GetText(string getmotd_url)
         {
             WebClient client = new WebClient();
             byte[] buffer = client.DownloadData(getmotd_url);
-            return System.Text.Encoding.ASCII.GetString(buffer);
+            return Encoding.ASCII.GetString(buffer);
         }
 
-        private static void extractRes()
+        private static void ExtractRes()
         {
             if (!Directory.Exists(Environment.CurrentDirectory + "\\meta")) Directory.CreateDirectory(Environment.CurrentDirectory + "\\meta");
-            string str = Properties.Resources.updateScript;
-            byte[] Save = Encoding.ASCII.GetBytes(str);
-            FileStream fsObj = new FileStream(Environment.CurrentDirectory + "\\meta\\update.bat", FileMode.OpenOrCreate);
-            fsObj.Write(Save, 0, Save.Length);
-            fsObj.Flush();
-            fsObj.Close();
+            string script = Properties.Resources.updateScript;
+            byte[] bytes = Encoding.ASCII.GetBytes(script);
+            FileStream stream = new FileStream(Environment.CurrentDirectory + "\\meta\\update.bat", FileMode.OpenOrCreate);
+            stream.Write(bytes, 0, bytes.Length);
+            stream.Flush();
+            stream.Close();
         }
 
         public static void CheckUpdate()
@@ -120,11 +122,11 @@ namespace Quick_Launcher
             }*/
 
             if (!CheckNet()) return;
-            if (version != getText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/ver.txt").Trim())
+            if (version != GetText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/ver.txt").Trim())
             {
-                extractRes();
+                ExtractRes();
                 MessageBox.Show("This launcher is outdated, confirm to update it.");
-                HttpDownload(getText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/update.txt"), Environment.CurrentDirectory + "\\Launcher.temp");
+                HttpDownload(GetText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/update.txt"), Environment.CurrentDirectory + "\\Launcher.temp");
                 checkver_fileexist:
                 if (File.Exists(Environment.CurrentDirectory + "\\temp"))
                 {
