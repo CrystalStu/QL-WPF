@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="Quick_Launcher.Countdown"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Quick_Launcher"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="275">
+    <Grid>
+        <Label x:Name="CountdownLabel" Content="-1" Margin="0,40,0,0" VerticalAlignment="Top" FontSize="72" HorizontalContentAlignment="Center" FontFamily="Vladimir Script" FontWeight="Bold" HorizontalAlignment="Left" Width="260"/>
+        <Label Content="距离中考还有" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="24"/>
+        <Label Content="天" Margin="226,100,0,0" VerticalAlignment="Top" FontSize="24" HorizontalAlignment="Left" Width="34"/>
+    </Grid>
+</UserControl>

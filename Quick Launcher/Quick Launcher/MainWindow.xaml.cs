@@ -178,6 +178,10 @@ namespace Quick_Launcher
 
         private void USBList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (USBList.SelectedItem == null)
+            {
+                return;
+            }
             char letter = USBList.SelectedItem.ToString()[0];
             KillMyDocument(letter + ":\\");
             ProcessStartInfo psi = new ProcessStartInfo("explorer.exe");

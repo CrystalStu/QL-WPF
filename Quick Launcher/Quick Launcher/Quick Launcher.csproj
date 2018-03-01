@@ -42,6 +42,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
@@ -61,6 +62,9 @@
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
     <Compile Include="Configuration.cs" />
+    <Compile Include="Countdown.xaml.cs">
+      <DependentUpon>Countdown.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.UDiskOperation.cs" />
     <Compile Include="MyConvert.cs" />
     <Compile Include="Settings.xaml.cs">
@@ -72,6 +76,10 @@
     </Compile>
     <Compile Include="Update.cs" />
     <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Countdown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,6 +128,7 @@
     </EmbeddedResource>
     <None Include="bin\Release\meta\update.bat" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\DataSources\Countdown.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
