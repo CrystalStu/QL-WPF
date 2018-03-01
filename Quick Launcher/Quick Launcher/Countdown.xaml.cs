@@ -2,6 +2,7 @@
 //using System.Threading;
 using System.Windows.Controls;
 using System.Timers;
+using System.Windows.Threading;
 
 namespace Quick_Launcher
 {
@@ -14,12 +15,12 @@ namespace Quick_Launcher
         //private DateTime Now;
         //private Thread threadTimer;
         private DateTime destDate = new DateTime(2018, 6, 17);
-        private Timer timeCountDown = new Timer();
+        private DispatcherTimer timeCountDown = new DispatcherTimer();
         public Countdown()
         {
             InitializeComponent();
-            timeCountDown.Interval = 1000;
-            timeCountDown.Elapsed += new ElapsedEventHandler(setRemain);
+            timeCountDown.Interval = new TimeSpan(0, 0, 1);
+            timeCountDown.Tick += new EventHandler(setRemain);
             timeCountDown.Start();
             /*Now = DateTime.Now;
             TimeCountdown = new DateTime(2018, 6, 17).Subtract(Now).Days + 1;
