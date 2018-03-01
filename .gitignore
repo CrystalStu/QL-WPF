@@ -260,3 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 /Quick Launcher/Quick Launcher/ClassDiagram1.cd
+/Quick Launcher/Explorer
+/Quick Launcher/Quick Launcher/src/bomb.png
