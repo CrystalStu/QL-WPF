@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
+//using System.Threading;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Timers;
 
 namespace Quick_Launcher
 {
@@ -21,13 +10,18 @@ namespace Quick_Launcher
     /// </summary>
     public partial class Countdown : UserControl
     {
-        private int TimeCountdown;
-        private DateTime Now;
-        private Thread Timer;
+        //private int TimeCountdown;
+        //private DateTime Now;
+        //private Thread threadTimer;
+        private DateTime destDate = new DateTime(2018, 6, 17);
+        private Timer timeCountDown = new Timer();
         public Countdown()
         {
             InitializeComponent();
-            Now = DateTime.Now;
+            timeCountDown.Interval = 1000;
+            timeCountDown.Elapsed += new ElapsedEventHandler(setRemain);
+            timeCountDown.Start();
+            /*Now = DateTime.Now;
             TimeCountdown = new DateTime(2018, 6, 17).Subtract(Now).Days + 1;
             CountdownLabel.Content = TimeCountdown.ToString();
             Timer = new Thread( () =>
@@ -38,7 +32,13 @@ namespace Quick_Launcher
                     TimeCountdown = new DateTime(2018, 6, 17).Subtract(Now).Days + 1;
                 }
                 Thread.Sleep(30000);    //半分钟一次
-            });
+            });*/
+        }
+
+        private void setRemain(object sender, EventArgs e)
+        {
+            TimeSpan ts = destDate - DateTime.Now;
+            lbCountDown.Content = ts.Days + "天 " + ts.Hours + "小时 " + ts.Minutes + "分钟 " + ts.Seconds + "秒";
         }
     }
 }

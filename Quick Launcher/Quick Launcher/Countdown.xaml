@@ -7,8 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="275">
     <Grid>
-        <Label x:Name="CountdownLabel" Content="-1" Margin="0,40,0,0" VerticalAlignment="Top" FontSize="72" HorizontalContentAlignment="Center" FontFamily="Vladimir Script" FontWeight="Bold" HorizontalAlignment="Left" Width="260"/>
+        <!--<Label x:Name="CountdownLabel" Content="-1" Margin="0,40,0,0" VerticalAlignment="Top" FontSize="72" HorizontalContentAlignment="Center" FontFamily="Vladimir Script" FontWeight="Bold" HorizontalAlignment="Left" Width="260"/>-->
         <Label Content="距离中考还有" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="24"/>
-        <Label Content="天" Margin="226,100,0,0" VerticalAlignment="Top" FontSize="24" HorizontalAlignment="Left" Width="34"/>
+        <Label x:Name="lbCountDown" Content="Label" HorizontalAlignment="Left" Margin="113,77,0,0" VerticalAlignment="Top"/>
+        <!--<Label Content="天" Margin="226,100,0,0" VerticalAlignment="Top" FontSize="24" HorizontalAlignment="Left" Width="34"/>-->
     </Grid>
 </UserControl>
