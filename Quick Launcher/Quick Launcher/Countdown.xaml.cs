@@ -27,8 +27,6 @@ namespace Quick_Launcher
         public Countdown()
         {
             InitializeComponent();
-            this.Width = 640;
-            this.Height = 320;
             Now = DateTime.Now;
             TimeCountdown = new DateTime(2018, 6, 17).Subtract(Now).Days + 1;
             CountdownLabel.Content = TimeCountdown.ToString();

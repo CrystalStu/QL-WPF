@@ -126,6 +126,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Release\meta\update.bat" />
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\Countdown.datasource" />
     <None Include="Properties\Settings.settings">
@@ -151,9 +152,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="src\Chara.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="src\bomb.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
