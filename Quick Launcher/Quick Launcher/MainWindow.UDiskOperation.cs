@@ -96,10 +96,18 @@ namespace Quick_Launcher
             DriveInfo[] disk = DriveInfo.GetDrives();
             foreach (DriveInfo drive in disk)
             {
-                if (drive.DriveType.GetHashCode() == 2)
+                try
                 {
-                    USBList.Items.Add(drive.Name.ToString()[0] + ":  " + drive.VolumeLabel + "  " + drive.GetTotalFreeSpace() + "/" + drive.GetTotalSize());
-                    KillMyDocument(drive.Name.ToString()[0] + ":\\");
+                    if (drive.DriveType.GetHashCode() == 2)
+                    {
+                        USBList.Items.Add(drive.Name.ToString()[0] + ":  " + drive.VolumeLabel + "  " + drive.GetTotalFreeSpace() + "/" + drive.GetTotalSize());
+                        KillMyDocument(drive.Name.ToString()[0] + ":\\");
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    System.Windows.MessageBox.Show(e.ToString());
                 }
             }
 #if DEBUG

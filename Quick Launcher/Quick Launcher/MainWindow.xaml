@@ -69,6 +69,8 @@
                 <Button x:Name="bt_options" Content="选项" Opacity="0.8" Click="BtOptions_Click"/>
             </StackPanel>
         </Grid>
+
+        <local:Countdown HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,-4,0" Grid.Row="1" Width="480" Height="128"/>
     </Grid>
 
 </Window>
