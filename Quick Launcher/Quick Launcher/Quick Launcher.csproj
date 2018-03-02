@@ -127,7 +127,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="bin\Release\meta\update.bat" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\Countdown.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

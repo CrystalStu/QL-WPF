@@ -41,6 +41,8 @@ using System.Windows;
                                               //、应用程序或任何主题专用资源字典中找到时使用)
 )]
 
+[assembly: System.Windows.Media.DisableDpiAwareness]
+
 
 // 程序集的版本信息由下列四个值组成: 
 //
