@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" 
+        Title="Quick Launcher" Height="1080" Width="1920" 
         WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Closing="_MainWindow_Closing">
     <Grid x:Name="grid_components">
         <Grid.RowDefinitions>
@@ -19,7 +19,7 @@
             </Grid.Effect>
         </Grid>
 
-        <Label Grid.Row="0" Content="Quick Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" 
+        <Label Grid.Row="0" Content="  Quick Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" 
                Foreground="White" Width="1920" FontWeight="Medium" MouseDoubleClick="Label_MouseDoubleClick" Margin="-2,-2,-2,0">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">

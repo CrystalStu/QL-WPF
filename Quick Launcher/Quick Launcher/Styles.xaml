@@ -43,7 +43,7 @@
     <ControlTemplate x:Key="WindowTemplateKey" TargetType="{x:Type Window}">
         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
             <Grid>
-                <Border BorderBrush="#FF10893E" BorderThickness="2,2,2,2" Background="{TemplateBinding Background}">
+                <Border BorderBrush="#FF0078D2" BorderThickness="2,2,2,2" Background="{TemplateBinding Background}">
                     <AdornerDecorator>
                         <ContentPresenter/>
                     </AdornerDecorator>
@@ -61,13 +61,13 @@
             </MultiTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    <Style x:Key="WindowStyle" TargetType="{x:Type Window}">
+    <Style TargetType="{x:Type Window}">
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
         <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Window}">
-                    <Border BorderBrush="#FFF0EAF9" BorderThickness="2,2,2,2" Background="{TemplateBinding Background}">
+                    <Border BorderBrush="#FF0078D2" BorderThickness="2,2,2,2" Background="{TemplateBinding Background}">
                         <AdornerDecorator>
                             <ContentPresenter/>
                         </AdornerDecorator>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Settings" Height="300" Width="300" MinHeight="200" MinWidth="200" Style="{DynamicResource WindowStyle}" WindowStartupLocation="CenterOwner" ResizeMode="CanResizeWithGrip" WindowStyle="None" MouseDown="Window_MouseDown">
+        Title="Settings" Height="300" Width="300" MinHeight="200" MinWidth="200" WindowStartupLocation="CenterOwner" ResizeMode="CanResizeWithGrip" WindowStyle="None" MouseDown="Window_MouseDown">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
