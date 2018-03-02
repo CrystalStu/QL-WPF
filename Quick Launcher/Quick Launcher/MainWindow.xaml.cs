@@ -69,6 +69,7 @@ namespace Quick_Launcher
         private void UseDesktop()
         {
             ImageBrush backgroundImageBrush = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(getDesktop())));
+            backgroundImageBrush.Stretch = Stretch.Fill;
             grid_background.Background = backgroundImageBrush;
             grid_background.Effect = new BlurEffect()
             {
