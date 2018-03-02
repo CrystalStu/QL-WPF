@@ -32,6 +32,8 @@ namespace Quick_Launcher
         {
             InitializeComponent();
             #region Initalize Basements
+            grid_background.Height = SystemParameters.PrimaryScreenHeight;
+            grid_background.Width = SystemParameters.PrimaryScreenWidth;
             this.ResizeMode = ResizeMode.NoResize;
             Timer time4refreshDesktop = new Timer();
             time4refreshDesktop.Enabled = false;
