@@ -5,10 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Closing="_MainWindow_Closing">
-    <!--Window.Background>
-        <ImageBrush ImageSource="src/CharaPink.png"/>
-    </-->
+        Title="Quick Launcher" Style="{DynamicResource WindowStyle}" Height="1080" Width="1920" 
+        WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None" Closing="_MainWindow_Closing">
     <Grid x:Name="grid_components">
         <Grid.RowDefinitions>
             <RowDefinition Height="55"/>
@@ -21,21 +19,8 @@
             </Grid.Effect>
         </Grid>
 
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1327*"/>
-                <ColumnDefinition Width="589*"/>
-            </Grid.ColumnDefinitions>
-            <Button x:Name="bt_about" Content="关于" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="420,957.5,0,0" Height="55" Opacity="0.8" Click="bt_about_Click" Grid.Column="1"/>
-            <Button x:Name="bt_options" Content="选项" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="420,898.712,0,0" Height="55" Opacity="0.8" Click="BtOptions_Click" Grid.Column="1"/>
-            <Button x:Name="bt_usb_browse" Content="浏览" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1045,680,0,0" Height="55" Opacity="0.8" Click="bt_usb_browse_Click" IsEnabled="False"/>
-            <Button x:Name="bt_usb_eject" Content="弹出" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1045,800,0,0" Height="55" Opacity="0.8" IsEnabled="False" Click="bt_usb_eject_Click"/>
-            <Button x:Name="bt_usb_public" Content="公用" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1045,740,0,0" Height="55" Opacity="0.8" Click="bt_usb_public_Click"/>
-            <Button x:Name="bt_open_all" Content="全部" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1045,860,0,0" Height="55" Opacity="0.8" IsEnabled="False" Click="bt_open_all_Click"/>
-            <Button x:Name="bt_usb_clear" Content="取消选择" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Style="{DynamicResource BaseButton}" FontSize=" 36" Margin="1045,620,0,0" Height="55" Opacity="0.8" IsEnabled="False" Click="bt_usb_clear_Click"/>
-        </Grid>
-
-        <Label Grid.Row="0" Content="  Quick Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" Foreground="White" Width="1920" FontWeight="Medium" MouseDoubleClick="Label_MouseDoubleClick" Margin="0,-10,-4,0">
+        <Label Grid.Row="0" Content="Quick Launcher" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="36" 
+               Foreground="White" Width="1920" FontWeight="Medium" MouseDoubleClick="Label_MouseDoubleClick" Margin="-2,-2,-2,0">
             <Label.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="Black"/>
@@ -43,8 +28,47 @@
                 </LinearGradientBrush>
             </Label.Background>
         </Label>
-        <ListBox x:Name="USBList" Height="1028" Width="1030" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,48,0,0" Opacity="0.8" FontSize="24" SelectionChanged="USBList_SelectionChanged" Grid.RowSpan="2" MouseRightButtonUp="USBList_MouseRightButtonUp" MouseDoubleClick="USBList_MouseDoubleClick"/>
-        <local:Countdown HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0" Grid.Row="1" Width="275" Height="150"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="15"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <ListBox x:Name="USBList" Grid.Column="1" Grid.Row="1" Opacity="0.8" FontSize="24" 
+                 SelectionChanged="USBList_SelectionChanged" MouseRightButtonUp="USBList_MouseRightButtonUp" MouseDoubleClick="USBList_MouseDoubleClick" Background="#7FFFFFFF" BorderBrush="{x:Null}"/>
+            </Grid>
+
+            <StackPanel Orientation="Vertical" Width="80" Grid.Column="1" VerticalAlignment="Center">
+                <Button x:Name="bt_usb_browse" Content="浏览" Opacity="0.8" Click="bt_usb_browse_Click" IsEnabled="False"/>
+                <Separator/>
+                <Button x:Name="bt_usb_eject" Content="弹出" Opacity="0.8" IsEnabled="False" Click="bt_usb_eject_Click"/>
+                <Separator/>
+                <Button x:Name="bt_usb_public" Content="公用" Opacity="0.8" Click="bt_usb_public_Click"/>
+                <Separator/>
+                <Button x:Name="bt_open_all" Content="全部" Opacity="0.8" IsEnabled="False" Click="bt_open_all_Click"/>
+                <Separator/>
+                <Button x:Name="bt_usb_clear" Content="取消选择" Opacity="0.8" IsEnabled="False" Click="bt_usb_clear_Click"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical" Width="80" Grid.Column="2" VerticalAlignment="Bottom">
+                <Button x:Name="bt_about" Content="关于" Opacity="0.8" Click="bt_about_Click"/>
+                <Separator/>
+                <Button x:Name="bt_options" Content="选项" Opacity="0.8" Click="BtOptions_Click"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 
 </Window>

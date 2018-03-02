@@ -5,12 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Settings" Height="300" Width="300" Style="{DynamicResource WindowStyle}" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" WindowStyle="None" MouseDown="Window_MouseDown">
+        Title="Settings" Height="300" Width="300" MinHeight="200" MinWidth="200" Style="{DynamicResource WindowStyle}" WindowStartupLocation="CenterOwner" ResizeMode="CanResizeWithGrip" WindowStyle="None" MouseDown="Window_MouseDown">
     <Grid>
-        <Button Content="确定" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Style="{DynamicResource BaseButton}" Margin="161,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7" Click="Set"/>
-        <Button Content="取消" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Style="{DynamicResource BaseButton}" Margin="226,266.413,0,0" Height="20" FontWeight="Thin" Background="#FF0078D7" Click="Exit"/>
-        <Label Content="选项" VerticalAlignment="Top" Background="#FF0078D2" Foreground="White" Height="26" Margin="-2,-1,-4,0"/>
-        <TextBlock x:Name="BackgroundPath" HorizontalAlignment="Left" Margin="10,70.8,0,0" TextWrapping="Wrap" Text="默认" VerticalAlignment="Top" Width="276" Foreground="#FFC2C3C9" Background="Black" DragOver="TextBlock_DragOver"/>
-        <Label Content="背景图片：" HorizontalAlignment="Left" Margin="10,44.8,0,0" VerticalAlignment="Top"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="选项" Grid.Row="0" Background="#FF0078D2" Foreground="White" Height="26" Margin="-2,-1,-2,0" VerticalAlignment="Top"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="BackgroundPath" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="  默认"
+                       Foreground="#FFE8E8EC" Background="#FF1E031E" DragOver="TextBlock_DragOver"/>
+            </Grid>
+
+            <Canvas Grid.Row="1">
+                <Label Content="背景图片：" Canvas.Left="10"/>
+            </Canvas>
+        </Grid>
+
+        <StackPanel Grid.Row="2" Width="60" HorizontalAlignment="Right">
+            <Button Content="取消" Height="20" FontWeight="Thin" Background="#FF0078D7" Click="Exit"/>
+            <Separator/>
+            <Button Content="确定" Height="20" FontWeight="Thin" Background="#FF0078D7" Click="Set"/>
+        </StackPanel>
     </Grid>
 </Window>

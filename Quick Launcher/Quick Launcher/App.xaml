@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Quick_Launcher"
              StartupUri="Start.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="Styles.xaml"/>
+        <ResourceDictionary Source="Styles.xaml">
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
