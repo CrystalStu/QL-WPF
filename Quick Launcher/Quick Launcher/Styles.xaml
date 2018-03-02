@@ -4,6 +4,7 @@
 
     <Style TargetType="Button">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="FontSize" Value="18"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -13,6 +14,10 @@
                         <ContentPresenter Name="ButtonContent" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="#FF646464"/>
+                            <Setter Property="Background" Value="#FF969696"/> 
+                        </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Rectangle.StrokeThickness" TargetName="BackgroundRectangle" Value="1.5"/>
                             <Setter Property="Rectangle.Stroke" TargetName="BackgroundRectangle" Value="#FF969696"/>
