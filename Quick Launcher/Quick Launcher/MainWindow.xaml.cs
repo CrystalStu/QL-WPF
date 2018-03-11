@@ -3,11 +3,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Forms;
-using System.Windows.Interop;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
 using System.Xml.Serialization;
 
 namespace Quick_Launcher
@@ -73,11 +70,6 @@ namespace Quick_Launcher
             ImageBrush backgroundImageBrush = new ImageBrush(new System.Windows.Media.Imaging.BitmapImage(new Uri(getDesktop())));
             backgroundImageBrush.Stretch = Stretch.Fill;
             grid_background.Background = backgroundImageBrush;
-            grid_background.Effect = new BlurEffect()
-            {
-                Radius = 8
-            };
-            // _MainWindow.Background = backgroundImageBrush;
         }
         private string getDesktop()
         {
@@ -148,7 +140,6 @@ namespace Quick_Launcher
             {
                 Ejection ejectarget = new Ejection(USBList.SelectedItem.ToString()[0] + ":");
                 bool result = ejectarget.Eject();
-                //if (result) MessageBox.Show("Operation Succeed!", "Successful Ejection", MessageBoxButtons.OK, MessageBoxIcon.Information); else MessageBox.Show("Failed, please try again.\r\nIf you have not remove this drive after ejecting it, it can also cause this problem.", "Ejection Failed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 if (result)
                 {
                     USBList.Items.Clear();

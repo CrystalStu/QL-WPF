@@ -15,7 +15,7 @@
 
         <Grid x:Name="grid_background" HorizontalAlignment="Left" Width="1920" Height="1080" Grid.RowSpan="2" VerticalAlignment="Top" >
             <Grid.Effect>
-                <BlurEffect/>
+                <BlurEffect Radius="60" RenderingBias="Quality"/>
             </Grid.Effect>
         </Grid>
 
@@ -35,7 +35,7 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            
+
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="15"/>
@@ -62,7 +62,7 @@
                 <Separator/>
                 <Button x:Name="bt_usb_clear" Content="取消选择" Opacity="0.8" IsEnabled="False" Click="bt_usb_clear_Click"/>
             </StackPanel>
-            
+
             <StackPanel Orientation="Vertical" Width="80" Grid.Column="2" VerticalAlignment="Bottom">
                 <Button x:Name="bt_about" Content="关于" Opacity="0.8" Click="bt_about_Click"/>
                 <Separator/>
@@ -70,7 +70,7 @@
             </StackPanel>
         </Grid>
 
-        <local:Countdown HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,-4,0" Grid.Row="1" Width="480" Height="128"/>
+        <local:Countdown HorizontalAlignment="Right" VerticalAlignment="Top" Width="480" Height="240" Grid.Row="1"/>
     </Grid>
 
 </Window>

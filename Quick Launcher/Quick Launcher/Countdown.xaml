@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Quick_Launcher"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="275">
+             d:DesignHeight="240" d:DesignWidth="480">
     <Grid Background="#7FFFFFFF">
-        <!--<Label x:Name="CountdownLabel" Content="-1" Margin="0,40,0,0" VerticalAlignment="Top" FontSize="72" HorizontalContentAlignment="Center" FontFamily="Vladimir Script" FontWeight="Bold" HorizontalAlignment="Left" Width="260"/>-->
-        <Label Content="距离中考还有" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="24"/>
-        <Label x:Name="lbCountDown" Content="Label" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" FontSize="36"/>
-        <!--<Label Content="天" Margin="226,100,0,0" VerticalAlignment="Top" FontSize="24" HorizontalAlignment="Left" Width="34"/>-->
+        <Label x:Name="lbZK" Content="距离中考还有" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="24"/>
+        <Label x:Name="lbCountDownZK" Content="Label" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label x:Name="lbYM" Content="距离一模还有" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,110,0,0" FontSize="24"/>
+        <Label x:Name="lbCountDownYM" Content="Label" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" FontSize="36"/>
     </Grid>
 </UserControl>

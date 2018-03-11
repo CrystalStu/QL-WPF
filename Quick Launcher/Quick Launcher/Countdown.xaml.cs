@@ -1,7 +1,5 @@
 ﻿using System;
-//using System.Threading;
 using System.Windows.Controls;
-using System.Timers;
 using System.Windows.Threading;
 
 namespace Quick_Launcher
@@ -11,35 +9,45 @@ namespace Quick_Launcher
     /// </summary>
     public partial class Countdown : UserControl
     {
-        //private int TimeCountdown;
-        //private DateTime Now;
-        //private Thread threadTimer;
-        private DateTime destDate = new DateTime(2018, 6, 17);
+        private DateTime destDateZK = new DateTime(2018, 6, 17);
+        private DateTime destDateYM = new DateTime(2018, 4, 13);
         private DispatcherTimer timeCountDown = new DispatcherTimer();
         public Countdown()
         {
             InitializeComponent();
+            checkValid();
             timeCountDown.Interval = new TimeSpan(0, 0, 1);
             timeCountDown.Tick += new EventHandler(setRemain);
             timeCountDown.Start();
-            /*Now = DateTime.Now;
-            TimeCountdown = new DateTime(2018, 6, 17).Subtract(Now).Days + 1;
-            CountdownLabel.Content = TimeCountdown.ToString();
-            Timer = new Thread( () =>
+        }
+
+        private void checkValid()
+        {
+            int val = 2;
+            if (destDateZK < DateTime.Now)
             {
-                if (DateTime.Now != Now)
-                {
-                    Now = DateTime.Now;
-                    TimeCountdown = new DateTime(2018, 6, 17).Subtract(Now).Days + 1;
-                }
-                Thread.Sleep(30000);    //半分钟一次
-            });*/
+                lbZK.Visibility = System.Windows.Visibility.Hidden;
+                lbCountDownZK.Visibility = System.Windows.Visibility.Hidden;
+                val--;
+            }
+            if(destDateYM < DateTime.Now)
+            {
+                lbYM.Visibility = System.Windows.Visibility.Hidden;
+                lbCountDownYM.Visibility = System.Windows.Visibility.Hidden;
+                val--;
+            }
+            if(val == 0)
+            {
+                this.Visibility = System.Windows.Visibility.Hidden;
+            }
         }
 
         private void setRemain(object sender, EventArgs e)
         {
-            TimeSpan ts = destDate - DateTime.Now;
-            lbCountDown.Content = ts.Days + "天 " + ts.Hours + "小时 " + ts.Minutes + "分钟 " + ts.Seconds + "秒";
+            TimeSpan tsZK = destDateZK - DateTime.Now;
+            TimeSpan tsYM = destDateYM - DateTime.Now;
+            lbCountDownZK.Content = tsZK.Days + "天 " + tsZK.Hours + "小时 " + tsZK.Minutes + "分钟 " + tsZK.Seconds + "秒";
+            lbCountDownYM.Content = tsYM.Days + "天 " + tsYM.Hours + "小时 " + tsYM.Minutes + "分钟 " + tsYM.Seconds + "秒";
         }
     }
 }
