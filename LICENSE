@@ -1,70 +1,26 @@
 GENERAL CRYSTAL LICENSE
-Version 1, 2017
+Version 2, 2018
+SECTION Close-source
 
 A.	For this license
-	i.	All of the license is powered by Crystal Workgroups (CW)
-	ii.	All of these following departments are CW’s
-	iii.	CW has all rights of explanations of this license
-	iv.	CW can modify, delete or create any item in this license
-	v.	CW has the right to process operations of this license without noticing users
-B.	For software (include online services or all Crystal productions base on computer)
-	a.	Close-source
-		i.	User
-			1.	Users cannot decompile all of Crystal close-source software (Crystal software) in any method, the exception is the recompilation for studying and researching
-			2.	Users should feedback all of problems they meet of Crystal software
-			3.	Users must keep Crystal software in the latest versions and keep network connection while using them most of the time
-		ii.	Crystal Computer Studio (CCS)
-			1.	CCS should keep Crystal software update and support them in supporting rounds
-			2.	CCS can control the status of Crystal software any time
-			3.	All creations from Crystal software are CW’s
-	b.	Open-source
-		i.	User
-			1.	User must follow the open-source license (like GPL v3)
-			2.	No other restrictions
-		ii.	CCS
-			1.	CCS can change the status any time
-			2.	CCS cannot recall the commits already exists in open-source repos
-			3.	CCS can use different licenses in any project
-	c.	General
-		i.	User
-			1.	Users must be responsible for the possibility of data losing and other risks
-			2.	Users cannot pirate any codes from any repos
-		ii.	CCS
-			1.	CCS can abolish any Crystal software any time
-			2.	CCS need not be responsible for the possibility of user data losing and other risks of users
-C.	For all services
-		i.	CW can terminate any service any time without noticing users
-		ii.	CW can collect users?data (exclude passwords, etc.) without noticing users
-		iii.	CW need not be responsible for all risks of users
-D.	For Crystal Press (CP)
-	a.	User
-		i.	Users must give the full version of the text to CP
-		ii.	Users can determine the length for free reading and whether to join the Crystal Free project
-		iii.	Users must give the whole text copyright to CP
-	b.	CP
-		i.	CP must pay at least 30% of the benefits ($) to the writer
-		ii.	CP must pay at least 40% of the benefits (Crystal Coins) to the writer
-		iii.	All the payment operations are thronging PayPal API and other official methods
-		iv.	All the payment are over dollars
-E.	For Crystal Store (CSE)
-	a.	User
-		i.	Users must be logged before buying anything for that they only need to pay once
-		ii.	Users can create, delete or modify his online Crystal store any time with verifications
-		iii.	Users cannot recall or change their payments
-	b.	CSE
-		i.	CSE must provide a security payment method
-		ii.	CSE cannot hide the money
-F.	For partners
-	a.	THE DETAILS ARE DUE TO THE REAL SITUATION, NOT ALL THESE ITEMS
-	b.	For partners
-		i.	Partners can determine how to teamwork
-	c.	For CW
-		i.	CW must give at least 40% of benefits to main partners
-	d.	General
-		i.	Anyone cannot hide the details that they are necessary
-		ii.	Anyone cannot quit unless everyone’s agreement is valid
-		iii.	Copyright belongs to every partners and CW, the percent every partners has is due to the percent it contributed and the maximum percent is 50%
+	i.	All of the license is powered by Crystal Studios (CST)
+	ii.	All of these following departments are CSTâ€™s
+	iii.	CST has all rights of explanations of this license
+	iv.	CST can modify, delete or create any item in this license
+	v.	CST has the right to process operations of this license without noticing users
 
-
-R.X. TU
-Crystal Workgroups
+B.	For Close-source software (include online services or all Crystal productions base on computer)
+	a.	User
+		i.  Users cannot decompile all of Crystal close-source software (Crystal software) in any method, the exception is the recompilation for studying and researching
+		ii. Users should feedback all of problems they meet of Crystal software
+		iii.  Users must keep Crystal software in the latest versions and keep network connection while using them most of the time
+    iv.	Users must be responsible for the possibility of data losing and other risks
+    v.	Users cannot pirate any codes from any repos
+	b.	Crystal Computer Studio (CCS)
+		i.	CCS should keep Crystal software update and support them in supporting rounds
+		ii.	CCS can control the status of Crystal software any time
+		iii.	All creations from Crystal software are CSTâ€™s
+    iv. CCS can abolish any Crystal software any time
+    v.  CCS need not be responsible for the possibility of user data losing and other risks of users
+    vi.	CST can terminate any service any time without noticing users
+    vii.	CST can collect usersâ€™ data by legal (exclude passwords, etc.) without noticing users
