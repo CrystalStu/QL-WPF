@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quick_Launcher"
         mc:Ignorable="d"
-        Title="Start" Height="300" Width="800" ResizeMode="NoResize" WindowStyle="None" Background="Black" WindowStartupLocation="CenterScreen">
+        Title="Quick Launcher - Starting" Height="300" Width="800" ResizeMode="NoResize" WindowStyle="None" Background="Black" WindowStartupLocation="CenterScreen" Icon="src/ico.ico" MouseDown="Window_MouseDown">
     <Grid>
         <Label Content="Quick Launcher" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="72"/>
-        <Label Content="  Loading..." HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" FontSize="18" Width="800" Background="#FF1E1E1E"/>
-        <MediaElement Source="src\loading.gif" HorizontalAlignment="Left" Height="100" Margin="700,166.4,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lb_stat" Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" FontSize="18" Width="800" Background="#FF1E1E1E"/>
+        <MediaElement Source="src\loading.gif" Height="100" Margin="690,161,10,39" Width="100" Visibility="Hidden"/>
     </Grid>
 </Window>

@@ -104,28 +104,14 @@ namespace Quick_Launcher
         }
 
         public static void CheckUpdate()
-        {/*
-            if (!CheckNet()) new Exception("无法连接服务器！");
-            if (version == getText("https://get.cstu.gq/metadata/xinyuan/quicklauncher/ver.txt").Trim())
-            {
-                MessageBox.Show("This program is outdated, confirm to update it.");
-                HttpDownload(getText("https://get.cstu.gq/metadata/xinyuan/quicklauncher/update.txt"), Environment.CurrentDirectory + "\\Launcher.temp");
-                while(File.Exists(Environment.CurrentDirectory + "\\temp\\Launcher.temp.temp"))
-                {
-                    Thread.Sleep(50);
-                }
-                System.Diagnostics.Process process = new System.Diagnostics.Process();
-                process.StartInfo.FileName = "cmd.exe";
-                process.StartInfo.Arguments = "/c @ECHO OFF&&TITLE Launcher Update Console&&meta\\update.bat";
-                process.Start();
-                ShutOff();
-            }*/
-
+        {
+            
             if (!CheckNet()) return;
             if (version != GetText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/ver.txt").Trim())
             {
                 ExtractRes();
                 MessageBox.Show("This launcher is outdated, confirm to update it.");
+#if DEBUG == false
                 HttpDownload(GetText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/update.txt"), Environment.CurrentDirectory + "\\Launcher.temp");
                 checkver_fileexist:
                 if (File.Exists(Environment.CurrentDirectory + "\\temp"))
@@ -133,11 +119,14 @@ namespace Quick_Launcher
                     Thread.Sleep(50);
                     goto checkver_fileexist;
                 }
+#endif
                 System.Diagnostics.Process p = new System.Diagnostics.Process();
                 p.StartInfo.FileName = "cmd.exe";
                 p.StartInfo.Arguments = "/c @ECHO OFF&&TITLE Launcher Update Console&&meta\\update.bat";
-                p.Start();//启动程序
+                p.Start();
+#if DEBUG == false
                 ShutOff();
+#endif
             }
         }
 

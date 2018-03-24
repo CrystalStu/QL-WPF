@@ -1,65 +1,86 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace Quick_Launcher
 {
     /// <summary>
-    /// Start.xaml 的交互逻辑
+    /// Start.xaml
     /// </summary>
     public partial class Start : Window
     {
+
         public Start()
         {
             InitializeComponent();
-#if DEBUG
+#if DEBUG == false
+            Hide();
+            ShowMW();
 #else
+            new Thread(Update).Start();
+#endif
+        }
+
+        #region Event Triggers
+        private void ShowMW()
+        {
+            Process instance = GetRunningInstance();
+            if (instance != null) HandleRunningInstance(instance);
+            new MainWindow().Show();
+        }
+
+        private void Update()
+        {
             try
             {
                 Updater.CheckUpdate();
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                lb_stat.Content = e.Message;
+                Thread.Sleep(1000);
             }
-#endif
-            new MainWindow().Show();
-            Close();
+            this.Dispatcher.Invoke((Action)(() =>
+            {   // This refer to the window in the WPF application.
+                Hide();
+                ShowMW();
+            }));
         }
+        #endregion
+
+        #region UI
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
             ((MediaElement)sender).Position = ((MediaElement)sender).Position.Add(TimeSpan.FromMilliseconds(1));
         }
 
-#region Check
-        [STAThread]
-        static void Check()
+        private void Window_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            System.Windows.Forms.Application.EnableVisualStyles();
-            System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            Process Instance = GetRunningInstance();
-            if (Instance != null)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-                HandleRunningInstance(Instance: Instance);
+                DragMove();
             }
-
-            //System.Windows.Forms.Application.Run(new frmMain());
         }
-        
+        #endregion
+
+        #region Check
         private static Process GetRunningInstance()
         {
             Process current = Process.GetCurrentProcess();
             Process[] processes = Process.GetProcessesByName(current.ProcessName);
-            //遍历与当前进程名称相同的进程列表 
+            // Foreach the same process name.
             foreach (Process process in processes)
             {
-                //如果实例已经存在则忽略当前进程
+                // Ignore current process if an instance exists.
                 if (process.Id != current.Id)
                 {
-                    //保证要打开的进程同已经存在的进程来自同一文件路径
-                    if (System.Environment.CurrentDirectory.Replace("/", "\\") == current.MainModule.FileName)
+                    // Same directory of the running instance.
+                    if (Environment.CurrentDirectory.Replace("/", "\\") == current.MainModule.FileName)
                     {
                         return process;
                     }
@@ -70,8 +91,8 @@ namespace Quick_Launcher
 
         private static void HandleRunningInstance(Process Instance)
         {
-            ShowWindowAsync(Instance.MainWindowHandle, 1); //调用api函数，正常显示窗口
-            SetForegroundWindow(Instance.MainWindowHandle); //将窗口放置最前端
+            ShowWindowAsync(Instance.MainWindowHandle, 1); // Display the window normally.
+            SetForegroundWindow(Instance.MainWindowHandle); // Set the window topmost.
             Environment.Exit(0);
         }
 
@@ -79,6 +100,6 @@ namespace Quick_Launcher
         private static extern bool ShowWindowAsync(System.IntPtr hWnd, int cmdShow);
         [DllImport("User32.dll")]
         private static extern bool SetForegroundWindow(System.IntPtr hWnd);
-#endregion
+        #endregion
     }
 }

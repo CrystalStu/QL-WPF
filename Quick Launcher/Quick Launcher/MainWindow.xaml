@@ -66,7 +66,10 @@
             <StackPanel Orientation="Vertical" Width="80" Grid.Column="2" VerticalAlignment="Bottom">
                 <Button x:Name="bt_about" Content="关于" Opacity="0.8" Click="bt_about_Click"/>
                 <Separator/>
+                <Button x:Name="bt_exit" Content="退出" Opacity="0.8" Click="bt_exit_Click"/>
+                <Separator/>
                 <Button x:Name="bt_options" Content="选项" Opacity="0.8" Click="BtOptions_Click"/>
+                <Separator/>
             </StackPanel>
         </Grid>
 

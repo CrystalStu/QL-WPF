@@ -32,9 +32,6 @@ namespace Quick_Launcher
             grid_background.Height = SystemParameters.PrimaryScreenHeight;
             grid_background.Width = SystemParameters.PrimaryScreenWidth;
             this.ResizeMode = ResizeMode.NoResize;
-            Timer time4refreshDesktop = new Timer();
-            time4refreshDesktop.Enabled = false;
-            time4refreshDesktop.Interval = 50;
             USBList.SelectionMode = System.Windows.Controls.SelectionMode.Single;
             #endregion
             #region Initalize Configure File
@@ -50,7 +47,6 @@ namespace Quick_Launcher
             }
             else
             {
-                time4refreshDesktop.Enabled = true;
                 UseDesktop();
                 Settings = new Configuration();
             }
@@ -97,6 +93,11 @@ namespace Quick_Launcher
         }
 
         private void Label_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void bt_exit_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
         }
@@ -188,5 +189,6 @@ namespace Quick_Launcher
             USBList_MouseDoubleClick(sender, e);
         }
         #endregion
+        
     }
 }

@@ -8,8 +8,8 @@
              d:DesignHeight="240" d:DesignWidth="480">
     <Grid Background="#7FFFFFFF">
         <Label x:Name="lbZK" Content="距离中考还有" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" FontSize="24"/>
-        <Label x:Name="lbCountDownZK" Content="Label" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label x:Name="lbCountDownZK" Content="Loading.." HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" FontSize="36"/>
         <Label x:Name="lbYM" Content="距离一模还有" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,110,0,0" FontSize="24"/>
-        <Label x:Name="lbCountDownYM" Content="Label" HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label x:Name="lbCountDownYM" Content="Loading.." HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" FontSize="36"/>
     </Grid>
 </UserControl>
