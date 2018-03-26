@@ -21,7 +21,7 @@ namespace Quick_Launcher
             InitializeComponent();
             Thread cte_thr = new Thread(changeTextEve);
             cte_thr.Start();
-#if DEBUG == false
+#if DEBUG
             Hide();
             ShowMW();
 #else
