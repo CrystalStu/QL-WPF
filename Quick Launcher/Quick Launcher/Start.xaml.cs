@@ -5,7 +5,6 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Threading;
 
 namespace Quick_Launcher
 {
@@ -14,10 +13,14 @@ namespace Quick_Launcher
     /// </summary>
     public partial class Start : Window
     {
+        private static string stat = String.Empty;
+        private static bool complete = false;
 
         public Start()
         {
             InitializeComponent();
+            Thread cte_thr = new Thread(changeTextEve);
+            cte_thr.Start();
 #if DEBUG == false
             Hide();
             ShowMW();
@@ -42,18 +45,36 @@ namespace Quick_Launcher
             }
             catch (Exception e)
             {
-                lb_stat.Content = e.Message;
+                changeText(e.Message);
                 Thread.Sleep(1000);
             }
             this.Dispatcher.Invoke((Action)(() =>
             {   // This refer to the window in the WPF application.
+                complete = true;
                 Hide();
                 ShowMW();
             }));
         }
+
+        private void changeTextEve()
+        {
+            while (!complete)
+            {
+                this.Dispatcher.Invoke((Action)(() =>
+                {   // This refer to the window in the WPF application.
+                    loadAnim.Visibility = Visibility.Visible;
+                    lb_stat.Content = stat;
+                }));
+            }
+        }
         #endregion
 
         #region UI
+        public static void changeText(string text)
+        {
+            stat = text;
+        }
+
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
             ((MediaElement)sender).Position = ((MediaElement)sender).Position.Add(TimeSpan.FromMilliseconds(1));

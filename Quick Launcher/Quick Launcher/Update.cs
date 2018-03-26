@@ -110,7 +110,7 @@ namespace Quick_Launcher
             if (version != GetText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/ver.txt").Trim())
             {
                 ExtractRes();
-                MessageBox.Show("This launcher is outdated, confirm to update it.");
+                Start.changeText("Updating the launcher..");
 #if DEBUG == false
                 HttpDownload(GetText("http://get.cstu.gq/metadata/xinyuan/quicklauncher/update.txt"), Environment.CurrentDirectory + "\\Launcher.temp");
                 checkver_fileexist:

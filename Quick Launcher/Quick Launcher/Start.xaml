@@ -8,7 +8,8 @@
         Title="Quick Launcher - Starting" Height="300" Width="800" ResizeMode="NoResize" WindowStyle="None" Background="Black" WindowStartupLocation="CenterScreen" Icon="src/ico.ico" MouseDown="Window_MouseDown">
     <Grid>
         <Label Content="Quick Launcher" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="72"/>
-        <Label x:Name="lb_stat" Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" FontSize="18" Width="800" Background="#FF1E1E1E"/>
-        <MediaElement Source="src\loading.gif" Height="100" Margin="690,161,10,39" Width="100" Visibility="Hidden"/>
+        <Label Content="" HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="White" FontSize="18" Width="800" Background="#FF1E1E1E"/>
+        <Label x:Name="lb_stat" Content="" HorizontalAlignment="Right" Margin="0,0,110,39" VerticalAlignment="Bottom" Width="680" Foreground="White" Height="53" FontSize="18"/>
+        <MediaElement x:Name="loadAnim" Source="src\loading.gif" Margin="0,0,5,39" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100"/>
     </Grid>
 </Window>
