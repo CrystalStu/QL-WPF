@@ -18,9 +18,13 @@ namespace Quick_Launcher
     /// </summary>
     public partial class About : Window
     {
+
+        static string version = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetEntryAssembly().Location).ProductVersion;
+
         public About()
         {
             InitializeComponent();
+            lb_ver.Content = version;
         }
 
         /// <summary>

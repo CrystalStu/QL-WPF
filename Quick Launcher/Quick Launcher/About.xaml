@@ -17,5 +17,6 @@
             <Run Text=" Middle School"/><LineBreak/><Run Text="Under General Crystal License (GCL) - Close-source Software"/><LineBreak/>
             <Run Text="A launcher application for USB"/><Run Text=" "/><Run Text="removable devices."/></TextBlock>
         <Button x:Name="OKButton" Content="OK" HorizontalAlignment="Left" Margin="461.4,108,0,0" VerticalAlignment="Top" Width="75" Click="OKButton_Click"/>
+        <Label x:Name="lb_ver" Content="" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="29" Width="133" Foreground="White" Margin="0,0,417,121"/>
     </Grid>
 </Window>
