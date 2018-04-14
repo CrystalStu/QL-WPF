@@ -9,8 +9,8 @@ namespace Quick_Launcher
     /// </summary>
     public partial class Countdown : UserControl
     {
-        private DateTime destDateZK = new DateTime(2018, 6, 17);
-        private DateTime destDateYM = new DateTime(2018, 4, 13);
+        private DateTime destDateMaster = new DateTime(2018, 6, 17);
+        private DateTime destDateSlave = new DateTime(2018, 5, 5).AddHours(8);
         private DispatcherTimer timeCountDown = new DispatcherTimer();
         public Countdown()
         {
@@ -24,16 +24,16 @@ namespace Quick_Launcher
         private void checkValid()
         {
             int val = 2;
-            if (destDateZK < DateTime.Now)
+            if (destDateMaster < DateTime.Now)
             {
-                lbZK.Visibility = System.Windows.Visibility.Hidden;
-                lbCountDownZK.Visibility = System.Windows.Visibility.Hidden;
+                lbMaster.Visibility = System.Windows.Visibility.Hidden;
+                lbCountDownMaster.Visibility = System.Windows.Visibility.Hidden;
                 val--;
             }
-            if(destDateYM < DateTime.Now)
+            if(destDateSlave < DateTime.Now)
             {
-                lbYM.Visibility = System.Windows.Visibility.Hidden;
-                lbCountDownYM.Visibility = System.Windows.Visibility.Hidden;
+                lbSlave.Visibility = System.Windows.Visibility.Hidden;
+                lbCountDownSlave.Visibility = System.Windows.Visibility.Hidden;
                 val--;
             }
             if(val == 0)
@@ -44,10 +44,10 @@ namespace Quick_Launcher
 
         private void setRemain(object sender, EventArgs e)
         {
-            TimeSpan tsZK = destDateZK - DateTime.Now;
-            TimeSpan tsYM = destDateYM - DateTime.Now;
-            lbCountDownZK.Content = tsZK.Days + "天 " + tsZK.Hours + "小时 " + tsZK.Minutes + "分钟 " + tsZK.Seconds + "秒";
-            lbCountDownYM.Content = tsYM.Days + "天 " + tsYM.Hours + "小时 " + tsYM.Minutes + "分钟 " + tsYM.Seconds + "秒";
+            TimeSpan tsZK = destDateMaster - DateTime.Now;
+            TimeSpan tsYM = destDateSlave - DateTime.Now;
+            lbCountDownMaster.Content = tsZK.Days + "天 " + tsZK.Hours + "小时 " + tsZK.Minutes + "分钟 " + tsZK.Seconds + "秒";
+            lbCountDownSlave.Content = tsYM.Days + "天 " + tsYM.Hours + "小时 " + tsYM.Minutes + "分钟 " + tsYM.Seconds + "秒";
         }
     }
 }
