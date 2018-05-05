@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace Quick_Launcher
@@ -19,6 +21,13 @@ namespace Quick_Launcher
         public Start()
         {
             InitializeComponent();
+            #region Check Environment
+            if (Path.GetFileName(System.Windows.Forms.Application.ExecutablePath) != "Launcher.exe")
+            {
+                System.Windows.Forms.MessageBox.Show("请将此可执行文件名修改为Launcher.exe后重新打开这个软件。", "不被允许的文件名", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Environment.Exit(1);
+            }
+            #endregion
             Thread cte_thr = new Thread(changeTextEve);
             cte_thr.Start();
 #if DEBUG
