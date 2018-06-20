@@ -73,7 +73,7 @@
             </StackPanel>
         </Grid>
 
-        <local:Countdown HorizontalAlignment="Right" VerticalAlignment="Top" Width="480" Height="240" Grid.Row="1"/>
+        <!--<local:Countdown HorizontalAlignment="Right" VerticalAlignment="Top" Width="480" Height="240" Grid.Row="1"/>-->
     </Grid>
 
 </Window>
