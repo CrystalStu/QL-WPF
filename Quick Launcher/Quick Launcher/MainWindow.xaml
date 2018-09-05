@@ -66,14 +66,14 @@
             <StackPanel Orientation="Vertical" Width="80" Grid.Column="2" VerticalAlignment="Bottom">
                 <Button x:Name="bt_about" Content="关于" Opacity="0.8" Click="bt_about_Click"/>
                 <Separator/>
-                <Button x:Name="bt_exit" Content="退出" Opacity="0.8" Click="bt_exit_Click"/>
+                <Button x:Name="bt_exit" Content="退出" Opacity="0.8" Click="bt_exit_Click" Visibility="Hidden"/>
                 <Separator/>
-                <Button x:Name="bt_options" Content="选项" Opacity="0.8" Click="BtOptions_Click"/>
+                <Button x:Name="bt_options" Content="选项" Opacity="0.8" Click="BtOptions_Click" Visibility="Hidden"/>
                 <Separator/>
             </StackPanel>
         </Grid>
 
-        <!--<local:Countdown HorizontalAlignment="Right" VerticalAlignment="Top" Width="480" Height="240" Grid.Row="1"/>-->
+        <local:Countdown HorizontalAlignment="Right" VerticalAlignment="Top" Width="480" Height="240" Grid.Row="1"/>
     </Grid>
 
 </Window>

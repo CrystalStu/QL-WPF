@@ -10,7 +10,7 @@ namespace Quick_Launcher
     /// </summary>
     public partial class Countdown : UserControl
     {
-        private DateTime destDateMaster = new DateTime(2018, 6, 17);
+        private DateTime destDateMaster = new DateTime(2019, 6, 17);
         private DateTime destDateSlave = new DateTime(2018, 5, 25).AddHours(7).AddMinutes(40);
         private DispatcherTimer timeCountDown = new DispatcherTimer();
 
